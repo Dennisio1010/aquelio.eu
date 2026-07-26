@@ -1,0 +1,15 @@
+{
+  "name": "aquelio-landing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Aquelio — page de test Phase 0, vitrine + paiement Stripe hébergé",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "stripe": "^17.5.0"
+  }
+}

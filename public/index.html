@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aquelio — L'eau, réduite à l'essentiel</title>
+<meta name="description" content="Filtre à eau testé contre les polluants éternels (PFAS). Réservez le vôtre avec un dépôt remboursable de 20€.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav" id="top">
+  <a class="nav-mark" href="#top">Aquelio<span class="nav-dot" aria-hidden="true"></span></a>
+  <nav class="nav-links" aria-label="Navigation principale">
+    <a href="#probleme">Le problème</a>
+    <a href="#solution">La solution</a>
+    <a href="#faq">Questions</a>
+  </nav>
+  <a class="nav-cart" href="#reserver">Réserver</a>
+</header>
+
+<!-- ══ Signature : anatomie pilotée au scroll (rendu concept, non contractuel) ══ -->
+<section class="scrub" id="probleme" aria-label="De l'eau du robinet à l'eau filtrée, en quatre étapes">
+  <div class="scrub-sticky">
+    <video class="scrub-video" id="scrubVideo"
+           data-src-desktop="assets/source-1080.mp4"
+           data-src-mobile="assets/source-720.mp4"
+           muted playsinline preload="auto"
+           aria-label="Rendu concept : le filtre pivote puis se sépare en ses composants internes"></video>
+
+    <p class="concept-badge">Rendu concept — non contractuel</p>
+
+    <button type="button" class="video-toggle" id="videoToggle" aria-label="Mettre l'animation en pause">
+      <span class="video-toggle-icon" id="videoToggleIcon" aria-hidden="true">❚❚</span>
+    </button>
+
+    <!-- Étape 0 · Héro -->
+    <div class="stage stage-hero is-on" data-stage="hero">
+      <p class="eyebrow">Directive eau potable UE · Limites PFAS en vigueur · 2026</p>
+      <h1 class="hero-title">L'eau,<br>réduite à<br>l'essentiel.</h1>
+      <p class="hero-sub">Ce qui reste après le filtre : de l'eau. Rien d'autre —
+      ni polluants éternels, ni microplastiques, ni goût de chlore.</p>
+      <p class="scroll-hint" aria-hidden="true">Faites défiler pour voir comment</p>
+    </div>
+
+    <!-- Étape 1 · Le problème -->
+    <div class="stage stage-line" data-stage="turn">
+      <p class="eyebrow">Le problème</p>
+      <p class="stage-big">Invisibles.<br>Persistants.<br>Dans l'eau du robinet.</p>
+    </div>
+
+    <!-- Étape 2 · La solution -->
+    <div class="stage stage-line" data-stage="open" id="solution">
+      <p class="eyebrow">La solution</p>
+      <p class="stage-big">Quatre étapes.<br>Une eau vraiment propre.</p>
+    </div>
+
+    <!-- Étape 3 · Nomenclature -->
+    <div class="stage stage-parts" data-stage="parts">
+      <p class="eyebrow">Les 4 étapes de filtration</p>
+      <ol class="parts">
+        <li><span class="part-no">01</span><span class="part-name">Préfiltre sédiments</span><span class="part-note">sable, rouille, particules</span></li>
+        <li><span class="part-no">02</span><span class="part-name">Charbon actif bloc</span><span class="part-note">chlore, goût, odeur</span></li>
+        <li><span class="part-no">03</span><span class="part-name">Membrane haute densité</span><span class="part-note">PFAS, métaux lourds</span></li>
+        <li><span class="part-no">04</span><span class="part-name">Post-filtration minérale</span><span class="part-note">équilibre du goût</span></li>
+      </ol>
+    </div>
+
+    <div class="scrub-progress" aria-hidden="true"><span id="progressBar"></span></div>
+  </div>
+</section>
+
+<!-- ══ Caractéristiques ══ -->
+<section class="features" id="caracteristiques">
+  <div class="features-head">
+    <p class="eyebrow">Pourquoi maintenant</p>
+    <h2 class="section-title">Ce n'est plus<br>une option.</h2>
+  </div>
+  <div class="features-grid">
+    <article class="feature">
+      <p class="feature-index">Réglementation</p>
+      <h3>Directive UE en vigueur</h3>
+      <p>Depuis janvier 2026, l'Union européenne impose des limites contraignantes
+      sur les PFAS dans l'eau potable — la première fois qu'un cadre européen existe sur ce sujet.</p>
+    </article>
+    <article class="feature">
+      <p class="feature-index">Installation</p>
+      <h3>Sans plomberie complexe</h3>
+      <p>Conçu pour se raccorder sous l'évier ou en version comptoir, sans faire appel
+      à un plombier.</p>
+    </article>
+    <article class="feature">
+      <p class="feature-index">Vérification</p>
+      <h3>Test indépendant en cours</h3>
+      <p>Chaque lot est envoyé en laboratoire indépendant pour vérifier la réduction
+      réelle des PFAS avant toute mise en vente. Le rapport sera public.</p>
+    </article>
+    <article class="feature">
+      <p class="feature-index">Entretien</p>
+      <h3>Cartouches par abonnement</h3>
+      <p>Renouvellement automatique tous les 3 à 6 mois selon ta consommation,
+      livré avant que le filtre ne perde en efficacité.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ══ Réserver ══ -->
+<section class="buy" id="reserver">
+  <div class="buy-head">
+    <p class="eyebrow">Réserver</p>
+    <h2 class="section-title">Sois parmi<br>les premiers.</h2>
+    <p class="buy-intro">Le produit est encore en phase de test fournisseur et de certification
+    laboratoire. Réserve ta place maintenant — dépôt entièrement remboursable si le lancement
+    ne te convient pas.</p>
+  </div>
+
+  <div class="buy-panel">
+    <div class="buy-price">
+      <span class="buy-amount">20&nbsp;€</span>
+      <span class="buy-price-note">Dépôt de réservation, 100&nbsp;% remboursable</span>
+    </div>
+
+    <p class="buy-label">Rejoindre la liste d'attente (gratuit)</p>
+    <form class="reserve-form" id="waitlistForm">
+      <input type="email" name="email" placeholder="ton@email.com" required aria-label="Adresse email">
+      <button type="submit" class="btn-primary">S'inscrire</button>
+    </form>
+    <p class="reserve-note" id="waitlistNote"></p>
+
+    <div class="buy-divider"><span>ou</span></div>
+
+    <p class="buy-label">Réserver avec dépôt remboursable</p>
+    <button type="button" class="btn-primary btn-deposit" id="depositBtn">Réserver — dépôt de 20&nbsp;€</button>
+    <p class="buy-reassure">Paiement sécurisé par Stripe · Dépôt remboursable à tout moment avant l'expédition.</p>
+    <p class="reserve-note" id="depositNote"></p>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="specs" id="faq">
+  <p class="eyebrow">Questions</p>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>Comment savoir si le filtre retire vraiment les PFAS ?</summary>
+      <p>Chaque lot est testé par un laboratoire indépendant sur l'eau réellement filtrée en sortie,
+      pas seulement sur la promesse du fabricant. Le rapport sera publié avant la mise en vente définitive.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Quand le produit sera-t-il livré ?</summary>
+      <p>Le premier lot est en cours de sourcing et de certification. Les précommandes seront honorées
+      dans l'ordre, avec une estimation de délai communiquée par email avant tout paiement final.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Le dépôt de 20€ est-il vraiment remboursable ?</summary>
+      <p>Oui, intégralement, à tout moment avant l'expédition — il te suffit de répondre à l'email de confirmation.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Faut-il un plombier pour l'installer ?</summary>
+      <p>Non — le format prévu (comptoir ou sous-évier simplifié) est pensé pour une installation
+      sans outil spécialisé.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ══ Pied de page ══ -->
+<footer class="footer">
+  <p class="footer-line">Petite. Efficace. Vérifiée.</p>
+  <a class="footer-cta" href="#reserver">
+    Réserver ma place <span aria-hidden="true">→</span>
+  </a>
+  <p class="footer-legal">
+    Page de test — produit en cours de développement, aucune vente ferme n'est effectuée avant
+    validation laboratoire. <a href="#confidentialite" class="footer-link">Confidentialité</a> ·
+    Contact : <a href="mailto:contact@aquelio.eu" class="footer-link">contact@aquelio.eu</a>
+  </p>
+</footer>
+
+<!-- ══ Confidentialité (RGPD minimal) ══ -->
+<section class="legal" id="confidentialite">
+  <p class="eyebrow">Confidentialité</p>
+  <div class="legal-body">
+    <p>Cette page collecte ton adresse email (liste d'attente) et, si tu réserves, tes informations
+    de paiement traitées directement par Stripe — jamais stockées sur ce site. Ces données servent
+    uniquement à t'informer du lancement et ne sont ni revendues ni partagées avec des tiers.
+    Tu peux demander la suppression de tes données à tout moment via l'adresse de contact ci-dessus.</p>
+  </div>
+</section>
+
+<!-- ══ Bannière cookies ══ -->
+<div class="cookie-banner" id="cookieBanner" hidden>
+  <p>Ce site utilise des cookies de mesure d'audience et de suivi publicitaire pour évaluer l'intérêt
+  pour ce produit. <a href="#confidentialite">En savoir plus</a>.</p>
+  <button type="button" class="btn-primary" id="cookieAccept">J'accepte</button>
+</div>
+
+<script src="script.js"></script>
+<script src="reserve.js"></script>
+</body>
+</html>
