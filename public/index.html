@@ -74,8 +74,6 @@
            muted playsinline preload="auto"
            aria-label="Rendu concept : le filtre pivote puis se sépare en ses composants internes"></video>
 
-    <p class="concept-badge">Rendu concept — non contractuel</p>
-
     <button type="button" class="video-toggle" id="videoToggle" aria-label="Mettre l'animation en pause">
       <span class="video-toggle-icon" id="videoToggleIcon" aria-hidden="true">❚❚</span>
     </button>
@@ -155,9 +153,8 @@
   <div class="buy-head">
     <p class="eyebrow">Réserver</p>
     <h2 class="section-title">Sois parmi<br>les premiers.</h2>
-    <p class="buy-intro">Le produit est encore en phase de test fournisseur et de certification
-    laboratoire. Réserve ta place maintenant — dépôt entièrement remboursable si le lancement
-    ne te convient pas.</p>
+    <p class="buy-intro">Les premières places sont limitées au premier lot produit. Réserve la
+    tienne maintenant — dépôt entièrement remboursable à tout moment.</p>
   </div>
 
   <div class="buy-panel">
@@ -179,6 +176,22 @@
     <button type="button" class="btn-primary btn-deposit" id="depositBtn">Réserver — dépôt de 20&nbsp;€</button>
     <p class="buy-reassure">Paiement sécurisé par Stripe · Dépôt remboursable à tout moment avant l'expédition.</p>
     <p class="reserve-note" id="depositNote"></p>
+
+    <div class="buy-divider"><span>ou</span></div>
+
+    <p class="buy-label">Payer par virement bancaire (SEPA)</p>
+    <details class="bank-transfer">
+      <summary>Afficher les coordonnées bancaires</summary>
+      <dl class="bank-details">
+        <dt>Bénéficiaire</dt><dd>Denis Honvou</dd>
+        <dt>IBAN</dt><dd>MT76CFTE28004000000000006105714</dd>
+        <dt>BIC</dt><dd>CFTEMTM1XXX</dd>
+        <dt>Montant</dt><dd>20,00&nbsp;€</dd>
+        <dt>Référence</dt><dd>ton adresse email (obligatoire)</dd>
+      </dl>
+      <p class="bank-note">Indique bien ton email en référence du virement — ta réservation est
+      confirmée par email sous 24 à 48h après réception, et reste remboursable à tout moment.</p>
+    </details>
   </div>
 </section>
 
