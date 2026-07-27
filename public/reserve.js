@@ -37,14 +37,32 @@
     btn.textContent = "S'inscrire";
   });
 
-  /* ── Bannière cookies (minimal, RGPD) ──────── */
+  /* ── Bannière cookies (RGPD) + Consent Mode Google Ads ──── */
   const banner = $("cookieBanner");
   const KEY = "source-cookie-consent";
-  if (!localStorage.getItem(KEY)) {
+
+  function grantConsent() {
+    if (typeof gtag === "function") {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+    }
+  }
+
+  if (localStorage.getItem(KEY) === "accepted") {
+    // Chaque chargement de page repart en "refusé" par défaut (Consent Mode) —
+    // on redonne le consentement si le visiteur avait déjà accepté avant.
+    grantConsent();
+  } else {
     banner.hidden = false;
   }
+
   $("cookieAccept").addEventListener("click", () => {
     localStorage.setItem(KEY, "accepted");
+    grantConsent();
     banner.hidden = true;
   });
 })();
