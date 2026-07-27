@@ -149,10 +149,10 @@ a { color: inherit; }
   inset: 0;
   z-index: 1;
   background: linear-gradient(0deg,
-    rgb(8 23 22 / 0.88) 0%,
-    rgb(8 23 22 / 0.6) 32%,
-    rgb(8 23 22 / 0.22) 60%,
-    rgb(8 23 22 / 0.05) 82%);
+    rgb(8 23 22 / 0.94) 0%,
+    rgb(8 23 22 / 0.74) 32%,
+    rgb(8 23 22 / 0.48) 60%,
+    rgb(8 23 22 / 0.32) 82%);
   pointer-events: none;
 }
 
@@ -795,6 +795,17 @@ a { color: inherit; }
   .nav-links { display: none; }
 
   .scrub { height: 420vh; }
+
+  /* Voile renforcé : moins d'espace pour le texte, il faut plus de contraste */
+  .scrub-scrim {
+    background: linear-gradient(0deg,
+      rgb(8 23 22 / 0.97) 0%,
+      rgb(8 23 22 / 0.85) 40%,
+      rgb(8 23 22 / 0.62) 70%,
+      rgb(8 23 22 / 0.48) 100%);
+  }
+
+  .hero-sub { color: rgb(245 243 236 / 0.82); }
 
   .stage-parts { width: min(21rem, 90vw); }
 
