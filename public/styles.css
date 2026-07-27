@@ -735,6 +735,15 @@ a { color: inherit; }
 .thanks-sub { color: var(--muted); max-width: 30rem; }
 .thanks-back { margin-top: 1.5rem; text-decoration: none; display: inline-block; }
 
+/* ── Tablette ──────────────────────────────── */
+@media (max-width: 1024px) {
+  .buy { grid-template-columns: 1fr; gap: 2.5rem; max-width: 34rem; }
+
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .stage-parts { width: min(22rem, 60vw); }
+}
+
 /* ── Mobile ────────────────────────────────── */
 @media (max-width: 720px) {
   .nav-links { display: none; }
@@ -747,9 +756,17 @@ a { color: inherit; }
 
   .scrub-progress { display: none; }
 
-  .buy { grid-template-columns: 1fr; }
+  .buy { grid-template-columns: 1fr; max-width: none; }
 
   .reserve-form { flex-direction: column; }
+
+  .bank-details { grid-template-columns: 1fr; }
+  .bank-details dt { margin-top: 0.5rem; }
+  .bank-details dt:first-child { margin-top: 0; }
+
+  .features-grid { grid-template-columns: 1fr; }
+
+  .emotion-line br { display: none; }
 
   .cookie-banner { flex-direction: column; align-items: stretch; text-align: left; }
 }

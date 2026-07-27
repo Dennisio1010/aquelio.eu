@@ -1,7 +1,7 @@
 /* Aquelio — page de test Phase 0.
-   Deux CTA distincts, volontairement séparés pour mesurer deux signaux :
-   1) la liste d'attente (friction quasi nulle, volume)
-   2) le dépôt remboursable (friction réelle, force du signal d'achat) */
+   Deux façons de réserver : la liste d'attente (friction quasi nulle) et le
+   virement bancaire (friction réelle, force du signal d'achat) — le paiement
+   par carte reviendra une fois Stripe activé. */
 
 (() => {
   const $ = id => document.getElementById(id);
@@ -35,29 +35,6 @@
     }
     btn.disabled = false;
     btn.textContent = "S'inscrire";
-  });
-
-  /* ── Dépôt remboursable (Stripe Checkout) ──── */
-  const depositBtn = $("depositBtn");
-  const depositNote = $("depositNote");
-
-  depositBtn.addEventListener("click", async () => {
-    depositBtn.disabled = true;
-    depositBtn.textContent = "Redirection…";
-    depositNote.textContent = "Création du paiement sécurisé…";
-    try {
-      const res = await fetch("/api/checkout", { method: "POST" });
-      const data = await res.json();
-      if (res.ok && data.url) {
-        window.location.href = data.url;
-        return;
-      }
-      depositNote.textContent = data.message || data.error || "Le paiement n'a pas pu démarrer. Réessayez.";
-    } catch {
-      depositNote.textContent = "Serveur injoignable. Lancez le serveur (node server.js) puis réessayez.";
-    }
-    depositBtn.disabled = false;
-    depositBtn.textContent = "Réserver — dépôt de 20 €";
   });
 
   /* ── Bannière cookies (minimal, RGPD) ──────── */
