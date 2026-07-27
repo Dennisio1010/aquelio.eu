@@ -136,16 +136,24 @@ a { color: inherit; }
 .lang-switch a.is-active { color: var(--accent); }
 
 /* ── Section signature : anatomie vidéo au scroll ─────────────── */
-/* La vidéo garde un fond studio clair — ces variables locales redonnent
-   le contraste sombre-sur-clair d'origine, indépendamment du thème
-   sombre du reste de la page. */
 .scrub {
-  --ink: #141312;
-  --muted: #4b5c57;
-  --hairline: #c2c1bd;
-  color: var(--ink);
   height: 480vh;
   position: relative;
+}
+
+/* Voile sombre entre la vidéo et le texte : garantit la lisibilité quel
+   que soit le contenu de la vidéo (photo de vie réelle, pas un fond uni),
+   et relie visuellement le hero au reste de la page (thème sombre/corail). */
+.scrub-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(0deg,
+    rgb(8 23 22 / 0.88) 0%,
+    rgb(8 23 22 / 0.6) 32%,
+    rgb(8 23 22 / 0.22) 60%,
+    rgb(8 23 22 / 0.05) 82%);
+  pointer-events: none;
 }
 
 .scrub-sticky {
@@ -215,13 +223,6 @@ a { color: inherit; }
   max-width: 34rem;
 }
 
-.hero-title,
-.stage-big {
-  text-shadow:
-    0 0 22px rgb(235 232 228 / 0.95),
-    0 0 55px rgb(235 232 228 / 0.75);
-}
-
 .hero-title {
   font-family: var(--font-display);
   font-variation-settings: "wdth" 125;
@@ -277,10 +278,10 @@ a { color: inherit; }
   inset: auto auto 9vh clamp(1.25rem, 4vw, 3.5rem);
   width: min(23rem, 88vw);
   padding: 1.2rem 1.4rem 0.6rem;
-  background: rgb(235 232 228 / 0.62);
+  background: rgb(8 23 22 / 0.55);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgb(255 255 255 / 0.5);
+  border: 1px solid rgb(245 243 236 / 0.15);
 }
 
 .parts {
