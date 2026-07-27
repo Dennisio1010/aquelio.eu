@@ -33,7 +33,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="/styles.css">
+
+<link rel="alternate" hreflang="fr" href="https://aquelio.eu/">
+<link rel="alternate" hreflang="nl" href="https://aquelio.eu/nl/">
+<link rel="alternate" hreflang="de" href="https://aquelio.eu/de/">
+<link rel="alternate" hreflang="x-default" href="https://aquelio.eu/">
 
 <script type="application/ld+json">
 {
@@ -62,15 +67,22 @@
     <a href="#solution">La solution</a>
     <a href="#faq">Questions</a>
   </nav>
-  <a class="nav-cart" href="#reserver">Réserver</a>
+  <div class="nav-right">
+    <div class="lang-switch" aria-label="Choisir la langue">
+      <a href="/" class="is-active">FR</a>
+      <a href="/nl/">NL</a>
+      <a href="/de/">DE</a>
+    </div>
+    <a class="nav-cart" href="#reserver">Réserver</a>
+  </div>
 </header>
 
 <!-- ══ Signature : anatomie pilotée au scroll (rendu concept, non contractuel) ══ -->
 <section class="scrub" id="probleme" aria-label="De l'eau du robinet à l'eau filtrée, en quatre étapes">
   <div class="scrub-sticky">
     <video class="scrub-video" id="scrubVideo"
-           data-src-desktop="assets/source-1080.mp4"
-           data-src-mobile="assets/source-720.mp4"
+           data-src-desktop="/assets/source-1080.mp4"
+           data-src-mobile="/assets/source-720.mp4"
            muted playsinline preload="auto"
            aria-label="Rendu concept : le filtre pivote puis se sépare en ses composants internes"></video>
 
@@ -116,7 +128,7 @@
 
 <!-- ══ La réalité (photo humaine) ══ -->
 <section class="emotion" id="realite">
-  <img src="assets/photo-probleme.jpg" alt="Des millions de foyers boivent une eau du robinet contaminée sans le savoir" class="emotion-photo">
+  <img src="/assets/photo-probleme.jpg" alt="Des millions de foyers boivent une eau du robinet contaminée sans le savoir" class="emotion-photo">
   <div class="emotion-overlay">
     <p class="eyebrow">La réalité</p>
     <p class="emotion-line">Ce n'est pas une inquiétude abstraite.<br>Des millions de foyers boivent déjà une eau<br>qu'ils ne devraient pas.</p>
@@ -240,8 +252,8 @@
 <section class="legal" id="confidentialite">
   <p class="eyebrow">Confidentialité</p>
   <div class="legal-body">
-    <p>Cette page collecte ton adresse email (liste d'attente) et, si tu réserves, tes informations
-    de paiement traitées directement par Stripe — jamais stockées sur ce site. Ces données servent
+    <p>Cette page collecte ton adresse email (liste d'attente) et, si tu réserves par virement bancaire,
+    les informations nécessaires pour confirmer ta réservation. Ces données servent
     uniquement à t'informer du lancement et ne sont ni revendues ni partagées avec des tiers.
     Tu peux demander la suppression de tes données à tout moment via l'adresse de contact ci-dessus.</p>
   </div>
@@ -254,7 +266,7 @@
   <button type="button" class="btn-primary" id="cookieAccept">J'accepte</button>
 </div>
 
-<script src="script.js"></script>
-<script src="reserve.js"></script>
+<script src="/script.js"></script>
+<script src="/reserve.js"></script>
 </body>
 </html>

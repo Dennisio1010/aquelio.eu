@@ -112,6 +112,29 @@ a { color: inherit; }
 
 .nav-cart:hover { background: var(--accent); color: var(--accent-ink); }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.lang-switch {
+  display: flex;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+.lang-switch a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.lang-switch a:hover { color: var(--ink); }
+.lang-switch a.is-active { color: var(--accent); }
+
 /* ── Section signature : anatomie vidéo au scroll ─────────────── */
 /* La vidéo garde un fond studio clair — ces variables locales redonnent
    le contraste sombre-sur-clair d'origine, indépendamment du thème
