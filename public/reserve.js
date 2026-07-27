@@ -6,6 +6,32 @@
 (() => {
   const $ = id => document.getElementById(id);
 
+  /* ── Textes dynamiques par langue (la page peut être fr, nl ou de) ── */
+  const STRINGS = {
+    fr: {
+      sending: "Envoi…",
+      success: "Inscrit·e ! Tu recevras des nouvelles avant le lancement.",
+      genericError: "Une erreur est survenue, réessaie.",
+      offline: "Serveur injoignable. Lancez le serveur (node server.js) puis réessayez.",
+      submit: "S'inscrire",
+    },
+    nl: {
+      sending: "Verzenden…",
+      success: "Ingeschreven! Je ontvangt nieuws vóór de lancering.",
+      genericError: "Er is een fout opgetreden, probeer opnieuw.",
+      offline: "Server niet bereikbaar. Start de server (node server.js) en probeer opnieuw.",
+      submit: "Inschrijven",
+    },
+    de: {
+      sending: "Wird gesendet…",
+      success: "Angemeldet! Du erhältst Neuigkeiten vor dem Start.",
+      genericError: "Ein Fehler ist aufgetreten, versuche es erneut.",
+      offline: "Server nicht erreichbar. Starte den Server (node server.js) und versuche es erneut.",
+      submit: "Anmelden",
+    },
+  };
+  const t = STRINGS[document.documentElement.lang] || STRINGS.fr;
+
   /* ── Liste d'attente ───────────────────────── */
   const waitlistForm = $("waitlistForm");
   const waitlistNote = $("waitlistNote");
@@ -15,26 +41,26 @@
     const email = new FormData(waitlistForm).get("email");
     const btn = waitlistForm.querySelector("button");
     btn.disabled = true;
-    btn.textContent = "Envoi…";
+    btn.textContent = t.sending;
     waitlistNote.textContent = "";
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, lang: document.documentElement.lang }),
       });
       const data = await res.json();
       if (res.ok) {
-        waitlistNote.textContent = "Inscrit·e ! Tu recevras des nouvelles avant le lancement.";
+        waitlistNote.textContent = t.success;
         waitlistForm.reset();
       } else {
-        waitlistNote.textContent = data.error || "Une erreur est survenue, réessaie.";
+        waitlistNote.textContent = data.error || t.genericError;
       }
     } catch {
-      waitlistNote.textContent = "Serveur injoignable. Lancez le serveur (node server.js) puis réessayez.";
+      waitlistNote.textContent = t.offline;
     }
     btn.disabled = false;
-    btn.textContent = "S'inscrire";
+    btn.textContent = t.submit;
   });
 
   /* ── Bannière cookies (RGPD) + Consent Mode Google Ads ──── */

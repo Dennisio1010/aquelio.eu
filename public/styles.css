@@ -805,7 +805,13 @@ a { color: inherit; }
       rgb(8 23 22 / 0.48) 100%);
   }
 
-  .hero-sub { color: rgb(245 243 236 / 0.82); }
+  .hero-sub { color: rgb(245 243 236 / 0.9); font-size: 1rem; line-height: 1.55; }
+
+  /* Traits plus épais sur mobile : plus lisible sur petit écran que le style
+     fin utilisé en desktop, où le voile + le grand format compensent déjà. */
+  .hero-title { font-weight: 420; font-size: clamp(2.4rem, 10vw, 3.4rem); }
+  .stage-big { font-weight: 440; }
+  .eyebrow { letter-spacing: 0.14em; font-size: 0.76rem; }
 
   .stage-parts { width: min(21rem, 90vw); }
 

@@ -33,6 +33,12 @@ if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+const INVALID_EMAIL_MSG = {
+  fr: "Adresse email invalide.",
+  nl: "Ongeldig e-mailadres.",
+  de: "Ungültige E-Mail-Adresse.",
+};
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -44,8 +50,9 @@ app.get("/api/config", (_req, res) => {
 // Capture d'email — liste d'attente, friction minimale.
 app.post("/api/subscribe", (req, res) => {
   const email = String(req.body?.email || "").trim().toLowerCase();
+  const lang = INVALID_EMAIL_MSG[req.body?.lang] ? req.body.lang : "fr";
   if (!EMAIL_RE.test(email)) {
-    return res.status(400).json({ error: "Adresse email invalide." });
+    return res.status(400).json({ error: INVALID_EMAIL_MSG[lang] });
   }
   const line = JSON.stringify({ email, at: new Date().toISOString() }) + "\n";
   fs.appendFile(EMAILS_FILE, line, (err) => {
