@@ -1,14 +1,15 @@
 /* ═══════════════════════════════════════════════
-   Aquelio — porcelaine, encre, un trait de cyan (eau)
+   Aquelio — eau profonde, urgence, un trait de corail
    ═══════════════════════════════════════════════ */
 
 :root {
-  --bg: #dadad8;          /* gris studio */
-  --ink: #141312;         /* encre charbon */
-  --muted: #63615c;       /* gris pierre */
-  --hairline: #c2c1bd;    /* filets */
-  --accent: #2fb8d6;      /* cyan — l'eau claire */
-  --murky: #8c7a5e;       /* teinte trouble — l'eau du robinet non filtrée */
+  --bg: #0f2e2e;          /* eau profonde, très sombre */
+  --bg-2: #133838;        /* panneau légèrement plus clair */
+  --ink: #f5f3ec;         /* papier chaud, presque blanc */
+  --muted: #9fc4bd;       /* gris-teal atténué */
+  --hairline: #23524d;    /* filets sombres */
+  --accent: #ff6b5b;      /* corail vif */
+  --accent-ink: #2b0d08;  /* texte sombre sur fond corail */
   --font-display: "Archivo", sans-serif;
   --font-body: "Instrument Sans", sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
@@ -57,7 +58,7 @@ a { color: inherit; }
   justify-content: space-between;
   gap: 1.5rem;
   padding: 1.4rem clamp(1.25rem, 4vw, 3.5rem);
-  background: rgb(235 232 228 / 0.72);
+  background: rgb(15 46 46 / 0.75);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -101,18 +102,25 @@ a { color: inherit; }
   font-size: 0.76rem;
   letter-spacing: 0.06em;
   text-decoration: none;
-  color: var(--ink);
+  color: var(--accent);
   background: transparent;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--accent);
   border-radius: 999px;
   padding: 0.55em 1.2em;
   transition: background 0.2s, color 0.2s;
 }
 
-.nav-cart:hover { background: var(--ink); color: var(--bg); }
+.nav-cart:hover { background: var(--accent); color: var(--accent-ink); }
 
-/* ── Section signature : scrub (SVG/CSS, sans vidéo) ─────────────── */
+/* ── Section signature : anatomie vidéo au scroll ─────────────── */
+/* La vidéo garde un fond studio clair — ces variables locales redonnent
+   le contraste sombre-sur-clair d'origine, indépendamment du thème
+   sombre du reste de la page. */
 .scrub {
+  --ink: #141312;
+  --muted: #4b5c57;
+  --hairline: #c2c1bd;
+  color: var(--ink);
   height: 480vh;
   position: relative;
 }
@@ -313,6 +321,45 @@ a { color: inherit; }
   background: var(--accent);
 }
 
+/* ── La réalité (photo humaine) ─────────────── */
+.emotion {
+  position: relative;
+  height: clamp(26rem, 60vw, 42rem);
+  overflow: hidden;
+  background: var(--bg-2);
+}
+
+.emotion-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.emotion-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 3.5rem);
+  background: linear-gradient(0deg,
+    rgb(8 23 22 / 0.92) 0%,
+    rgb(8 23 22 / 0.55) 45%,
+    rgb(8 23 22 / 0.05) 80%);
+}
+
+.emotion-line {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 118;
+  font-weight: 300;
+  font-size: clamp(1.5rem, 3.4vw, 2.6rem);
+  line-height: 1.15;
+  color: var(--ink);
+  max-width: 40rem;
+}
+
 /* ── Caractéristiques ──────────────────────── */
 .features {
   padding: clamp(5rem, 10vw, 9rem) clamp(1.25rem, 4vw, 3.5rem);
@@ -361,16 +408,16 @@ a { color: inherit; }
   font-family: var(--font-mono);
   font-size: 0.82rem;
   letter-spacing: 0.06em;
-  color: var(--bg);
-  background: var(--ink);
-  border: 1px solid var(--ink);
+  color: var(--accent-ink);
+  background: var(--accent);
+  border: 1px solid var(--accent);
   border-radius: 999px;
   padding: 1em 1.6em;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
 
-.btn-primary:hover { background: transparent; color: var(--ink); }
+.btn-primary:hover { background: transparent; color: var(--accent); }
 .btn-primary:disabled { opacity: 0.55; cursor: default; }
 
 /* ── Section Réserver ───────────────────────── */
@@ -392,7 +439,7 @@ a { color: inherit; }
 .buy-panel {
   border: 1px solid var(--hairline);
   padding: clamp(1.75rem, 3vw, 2.5rem);
-  background: rgb(255 255 255 / 0.35);
+  background: var(--bg-2);
 }
 
 .buy-price { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 2rem; }
@@ -501,7 +548,7 @@ a { color: inherit; }
   gap: 0.5rem 1rem;
   margin: 1rem 0 0.8rem;
   padding: 1rem 1.1rem;
-  background: rgb(255 255 255 / 0.4);
+  background: rgb(255 255 255 / 0.05);
   border: 1px solid var(--hairline);
   font-size: 0.86rem;
 }
@@ -573,8 +620,8 @@ a { color: inherit; }
 
 /* ── Pied de page ──────────────────────────── */
 .footer {
-  background: var(--ink);
-  color: var(--bg);
+  background: #081716;
+  color: var(--ink);
   padding: clamp(5rem, 10vw, 8rem) clamp(1.25rem, 4vw, 3.5rem) 3rem;
   text-align: center;
 }
@@ -640,34 +687,27 @@ a { color: inherit; }
   bottom: 1.25rem;
   max-width: 40rem;
   margin-inline: auto;
-  background: var(--ink);
-  color: var(--bg);
+  background: #081716;
+  color: var(--ink);
   padding: 1.1rem 1.3rem;
   border-radius: 14px;
   display: flex;
   align-items: center;
   gap: 1.2rem;
   flex-wrap: wrap;
-  box-shadow: 0 12px 40px rgb(0 0 0 / 0.25);
+  box-shadow: 0 12px 40px rgb(0 0 0 / 0.35);
 }
 
 .cookie-banner p {
   flex: 1;
   min-width: 14rem;
   font-size: 0.82rem;
-  color: rgb(235 232 228 / 0.85);
+  color: rgb(245 243 236 / 0.85);
 }
 
-.cookie-banner a { text-decoration: underline; color: var(--bg); }
+.cookie-banner a { text-decoration: underline; color: var(--accent); }
 
-.cookie-banner .btn-primary {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--ink);
-  white-space: nowrap;
-}
-
-.cookie-banner .btn-primary:hover { background: transparent; color: var(--accent); }
+.cookie-banner .btn-primary { white-space: nowrap; }
 
 /* ── Page de remerciement ──────────────────── */
 .thanks {
