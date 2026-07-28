@@ -3,12 +3,33 @@
 <head>
 <meta charset="utf-8">
 
-<!-- Google Tag Manager -->
+<!-- Configuration -->
+<script>
+  var GTM_ID = "GTM-N2H6JP5Q";
+  var CMP_ID = "CMP_ID_A_DEFINIR"; // à remplacer par l'identifiant réel de la CMP retenue
+</script>
+
+<!-- 1) Consent Mode v2 — valeurs par défaut, avant tout autre script -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(["consent", "default", {
+    ad_storage: "denied",
+    analytics_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    wait_for_update: 500
+  }]);
+</script>
+
+<!-- 2) CMP (gestion du consentement) -->
+<script src="/cmp.js" data-cmp-id="CMP_ID_A_DEFINIR"></script>
+
+<!-- 3) Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-N2H6JP5Q');</script>
+})(window,document,'script','dataLayer',GTM_ID);</script>
 <!-- End Google Tag Manager -->
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,23 +67,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
 
-<!-- Consent Mode : refusé par défaut tant que la bannière cookies n'est pas acceptée -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied',
-    'analytics_storage': 'denied'
-  });
-</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18332771810"></script>
-<script>
-  gtag('js', new Date());
-  gtag('config', 'AW-18332771810');
-</script>
 
 <script type="application/ld+json">
 {
@@ -93,7 +97,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/nl/">NL</a>
       <a href="/de/" class="is-active">DE</a>
     </div>
-    <a class="nav-cart" href="#reserver">Reservieren</a>
+    <a class="nav-cart" href="#reserver" data-cta="nav_reserver">Reservieren</a>
   </div>
 </header>
 
@@ -242,7 +246,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <footer class="footer">
   <p class="footer-line">Klein. Wirksam. Geprüft.</p>
-  <a class="footer-cta" href="#reserver">
+  <a class="footer-cta" href="#reserver" data-cta="footer_reserver">
     Meinen Platz reservieren <span aria-hidden="true">→</span>
   </a>
   <p class="footer-legal">

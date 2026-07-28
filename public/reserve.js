@@ -1,11 +1,16 @@
 /* Aquelio — page de test Phase 0.
-   Inscription gratuite à la liste d'attente, seule action de conversion
-   suivie à ce stade (pas de paiement tant que Stripe n'est pas activé). */
+   Inscription gratuite à la liste d'attente + événements dataLayer neutres
+   pour GTM (aucune conversion codée en dur ici : GTM décide quoi en faire).
+   La gestion du consentement (bannière) vit dans cmp.js, chargé dans le head. */
 
 (() => {
   const $ = id => document.getElementById(id);
+  const LANG = document.documentElement.lang || "fr";
 
-  /* ── Textes dynamiques par langue (la page peut être fr, nl ou de) ── */
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ page_language: LANG });
+
+  /* ── Textes dynamiques par langue ─────────────────────────────── */
   const STRINGS = {
     fr: {
       sending: "Envoi…",
@@ -29,11 +34,42 @@
       submit: "Anmelden",
     },
   };
-  const t = STRINGS[document.documentElement.lang] || STRINGS.fr;
+  const t = STRINGS[LANG] || STRINGS.fr;
 
-  /* ── Liste d'attente ───────────────────────── */
+  /* ── Profondeur de scroll (une fois chacun par chargement) ───── */
+  let sent50 = false, sent90 = false;
+  window.addEventListener("scroll", () => {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    if (total <= 0) return;
+    const pct = (window.scrollY / total) * 100;
+    if (!sent50 && pct >= 50) {
+      sent50 = true;
+      window.dataLayer.push({ event: "scroll_50" });
+    }
+    if (!sent90 && pct >= 90) {
+      sent90 = true;
+      window.dataLayer.push({ event: "scroll_90" });
+    }
+  }, { passive: true });
+
+  /* ── Clics CTA (nav + footer, vers #reserver) ─────────────────── */
+  document.querySelectorAll("[data-cta]").forEach(el => {
+    el.addEventListener("click", () => {
+      window.dataLayer.push({ event: "cta_click", cta_label: el.dataset.cta });
+    });
+  });
+
+  /* ── Liste d'attente ───────────────────────────────────────────── */
   const waitlistForm = $("waitlistForm");
   const waitlistNote = $("waitlistNote");
+  const emailInput = waitlistForm.querySelector("input[type=email]");
+
+  let formOpened = false;
+  emailInput.addEventListener("focus", () => {
+    if (formOpened) return;
+    formOpened = true;
+    window.dataLayer.push({ event: "form_open" });
+  });
 
   waitlistForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -46,12 +82,13 @@
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, lang: document.documentElement.lang }),
+        body: JSON.stringify({ email, lang: LANG }),
       });
       const data = await res.json();
       if (res.ok) {
         waitlistNote.textContent = t.success;
         waitlistForm.reset();
+        window.dataLayer.push({ event: "form_submit_success" });
       } else {
         waitlistNote.textContent = data.error || t.genericError;
       }
@@ -60,34 +97,5 @@
     }
     btn.disabled = false;
     btn.textContent = t.submit;
-  });
-
-  /* ── Bannière cookies (RGPD) + Consent Mode Google Ads ──── */
-  const banner = $("cookieBanner");
-  const KEY = "source-cookie-consent";
-
-  function grantConsent() {
-    if (typeof gtag === "function") {
-      gtag('consent', 'update', {
-        'ad_storage': 'granted',
-        'ad_user_data': 'granted',
-        'ad_personalization': 'granted',
-        'analytics_storage': 'granted'
-      });
-    }
-  }
-
-  if (localStorage.getItem(KEY) === "accepted") {
-    // Chaque chargement de page repart en "refusé" par défaut (Consent Mode) —
-    // on redonne le consentement si le visiteur avait déjà accepté avant.
-    grantConsent();
-  } else {
-    banner.hidden = false;
-  }
-
-  $("cookieAccept").addEventListener("click", () => {
-    localStorage.setItem(KEY, "accepted");
-    grantConsent();
-    banner.hidden = true;
   });
 })();
