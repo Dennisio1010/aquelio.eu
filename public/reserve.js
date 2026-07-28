@@ -1,7 +1,6 @@
 /* Aquelio — page de test Phase 0.
-   Deux façons de réserver : la liste d'attente (friction quasi nulle) et le
-   virement bancaire (friction réelle, force du signal d'achat) — le paiement
-   par carte reviendra une fois Stripe activé. */
+   Inscription gratuite à la liste d'attente, seule action de conversion
+   suivie à ce stade (pas de paiement tant que Stripe n'est pas activé). */
 
 (() => {
   const $ = id => document.getElementById(id);

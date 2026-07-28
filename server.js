@@ -1,7 +1,8 @@
 // AQUELIO. — serveur minimal pour la page de test Phase 0.
-// Trois rôles : servir le site statique, capter les emails de la liste
-// d'attente (fichier local, pas de base de données à ce stade), et créer
-// la session Stripe pour le dépôt de réservation remboursable.
+// Deux rôles actifs : servir le site statique et capter les emails de la
+// liste d'attente (fichier local, pas de base de données à ce stade).
+// La route Stripe reste en place, prête à être réactivée plus tard, mais
+// n'est plus appelée depuis l'interface (plus de paiement à ce stade).
 
 import express from "express";
 import Stripe from "stripe";
