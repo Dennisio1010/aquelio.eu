@@ -6,6 +6,7 @@
 
 import express from "express";
 import Stripe from "stripe";
+import { Resend } from "resend";
 import dotenv from "dotenv";
 import path from "node:path";
 import fs from "node:fs";
@@ -28,6 +29,13 @@ const DEPOSIT = {
 const stripeKey = process.env.STRIPE_SECRET_KEY;
 const stripe = stripeKey ? new Stripe(stripeKey) : null;
 
+// Email de confirmation d'inscription — désactivé (mode démo) tant que
+// RESEND_API_KEY n'est pas défini. EMAIL_FROM doit appartenir à un domaine
+// vérifié dans Resend (aquelio.eu) ; sinon Resend refuse ou restreint l'envoi.
+const resendKey = process.env.RESEND_API_KEY;
+const resend = resendKey ? new Resend(resendKey) : null;
+const EMAIL_FROM = process.env.EMAIL_FROM || "Aquelio <onboarding@resend.dev>";
+
 const DATA_DIR = path.join(__dirname, "data");
 const EMAILS_FILE = path.join(DATA_DIR, "emails.jsonl");
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
@@ -39,6 +47,63 @@ const INVALID_EMAIL_MSG = {
   nl: "Ongeldig e-mailadres.",
   de: "Ungültige E-Mail-Adresse.",
 };
+
+const CONFIRMATION_EMAIL = {
+  fr: {
+    subject: "Bienvenue sur la liste d'attente Aquelio",
+    text:
+`Merci de ton inscription à la liste d'attente Aquelio !
+
+Tu seras informé·e en priorité de l'avancement du produit et de la date de lancement.
+
+Aquelio est un filtre à eau anti-PFAS actuellement en développement — aucune vente ferme n'est effectuée avant validation par un laboratoire indépendant.
+
+Tu peux te désinscrire à tout moment en répondant à cet email.
+
+— L'équipe Aquelio`,
+  },
+  nl: {
+    subject: "Welkom op de Aquelio-wachtlijst",
+    text:
+`Bedankt voor je inschrijving op de Aquelio-wachtlijst!
+
+Je wordt als eerste op de hoogte gehouden van de voortgang van het product en de lanceringsdatum.
+
+Aquelio is een anti-PFAS waterfilter die momenteel in ontwikkeling is — er vindt geen definitieve verkoop plaats vóór validatie door een onafhankelijk laboratorium.
+
+Je kunt je op elk moment uitschrijven door op deze e-mail te antwoorden.
+
+— Het Aquelio-team`,
+  },
+  de: {
+    subject: "Willkommen auf der Aquelio-Warteliste",
+    text:
+`Danke für deine Anmeldung zur Aquelio-Warteliste!
+
+Du wirst als Erste·r über den Fortschritt des Produkts und den Starttermin informiert.
+
+Aquelio ist ein Anti-PFAS-Wasserfilter, der sich aktuell in Entwicklung befindet — ein endgültiger Verkauf erfolgt erst nach Validierung durch ein unabhängiges Labor.
+
+Du kannst dich jederzeit abmelden, indem du auf diese E-Mail antwortest.
+
+— Das Aquelio-Team`,
+  },
+};
+
+async function sendConfirmationEmail(email, lang) {
+  if (!resend) return;
+  const content = CONFIRMATION_EMAIL[lang] || CONFIRMATION_EMAIL.fr;
+  try {
+    await resend.emails.send({
+      from: EMAIL_FROM,
+      to: email,
+      subject: content.subject,
+      text: content.text,
+    });
+  } catch (err) {
+    console.error("Erreur envoi email de confirmation :", err.message);
+  }
+}
 
 app.use(express.json());
 
@@ -75,6 +140,7 @@ app.post("/api/subscribe", (req, res) => {
       return res.status(500).json({ error: "Impossible d'enregistrer l'email." });
     }
     res.json({ ok: true });
+    sendConfirmationEmail(email, lang);
   });
 });
 
@@ -112,4 +178,5 @@ app.post("/api/checkout", async (_req, res) => {
 app.listen(PORT, () => {
   console.log(`Aquelio — page de test sur http://localhost:${PORT}`);
   console.log(stripe ? "Paiement Stripe : activé." : "Paiement Stripe : mode démo (aucune clé).");
+  console.log(resend ? "Email de confirmation (Resend) : activé." : "Email de confirmation (Resend) : mode démo (aucune clé).");
 });
