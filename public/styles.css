@@ -722,6 +722,86 @@ a { color: inherit; }
   font-size: 0.92rem;
 }
 
+/* ── Consentement (case à cocher formulaire) ── */
+.consent-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 0.9rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.consent-check input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.2em;
+  accent-color: var(--accent);
+}
+
+.consent-check a { text-decoration: underline; }
+.consent-check a:hover { color: var(--accent); }
+
+/* ── Pages légales autonomes (mentions, confidentialité) ── */
+.legal-page {
+  padding-top: clamp(7rem, 15vw, 9.5rem);
+  border-top: none;
+}
+
+.legal-page .section-title { margin-bottom: 2.5rem; }
+
+.legal-page .legal-body { max-width: 48rem; font-size: 0.96rem; }
+
+.legal-body h2 {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 122;
+  font-weight: 500;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  margin: 2.8rem 0 0.9rem;
+}
+
+.legal-body h2:first-child { margin-top: 0; }
+
+.legal-body h3 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 1.6rem 0 0.5rem;
+}
+
+.legal-body p { margin-bottom: 0.9rem; }
+
+.legal-body ul {
+  margin: 0.4rem 0 1.1rem 1.2rem;
+}
+
+.legal-body li { margin-bottom: 0.45rem; }
+
+.legal-body a { text-decoration: underline; }
+.legal-body a:hover { color: var(--accent); }
+
+.legal-placeholder {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+}
+
+.legal-updated {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--hairline);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
 /* ── Bannière cookies ───────────────────────── */
 .cookie-banner[hidden] { display: none; }
 

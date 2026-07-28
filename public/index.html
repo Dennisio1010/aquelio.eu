@@ -227,9 +227,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <div class="buy-panel">
     <p class="buy-label">Liste d'attente (gratuit)</p>
-    <form class="reserve-form" id="waitlistForm">
-      <input type="email" name="email" placeholder="ton@email.com" required aria-label="Adresse email">
-      <button type="submit" class="btn-primary">S'inscrire</button>
+    <form id="waitlistForm">
+      <div class="reserve-form">
+        <input type="email" name="email" placeholder="ton@email.com" required aria-label="Adresse email">
+        <button type="submit" class="btn-primary">S'inscrire</button>
+      </div>
+      <label class="consent-check">
+        <input type="checkbox" name="consent" required aria-label="Consentement au traitement de mes données">
+        <span>J'accepte que mon email soit utilisé pour m'informer du lancement du produit,
+        conformément à la <a href="/confidentialite.html">politique de confidentialité</a>.</span>
+      </label>
     </form>
     <p class="reserve-note" id="waitlistNote"></p>
     <p class="buy-reassure">Gratuit, sans engagement · Désinscription possible à tout moment.</p>
@@ -267,25 +274,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </a>
   <p class="footer-legal">
     Page de test — produit en cours de développement, aucune vente ferme n'est effectuée avant
-    validation laboratoire. <a href="#confidentialite" class="footer-link">Confidentialité</a> ·
+    validation laboratoire.
+    <a href="/mentions-legales.html" class="footer-link">Mentions légales</a> ·
+    <a href="/confidentialite.html" class="footer-link">Confidentialité</a> ·
     Contact : <a href="mailto:contact@aquelio.eu" class="footer-link">contact@aquelio.eu</a>
   </p>
 </footer>
 
-<!-- ══ Confidentialité (RGPD minimal) ══ -->
-<section class="legal" id="confidentialite">
-  <p class="eyebrow">Confidentialité</p>
-  <div class="legal-body">
-    <p>Cette page collecte ton adresse email (liste d'attente). Ces données servent
-    uniquement à t'informer du lancement et ne sont ni revendues ni partagées avec des tiers.
-    Tu peux demander la suppression de tes données à tout moment via l'adresse de contact ci-dessus.</p>
-  </div>
-</section>
-
 <!-- ══ Bannière cookies ══ -->
 <div class="cookie-banner" id="cookieBanner" hidden>
   <p>Ce site utilise des cookies de mesure d'audience et de suivi publicitaire pour évaluer l'intérêt
-  pour ce produit. <a href="#confidentialite">En savoir plus</a>.</p>
+  pour ce produit. <a href="/confidentialite.html">En savoir plus</a>.</p>
   <button type="button" class="btn-primary" id="cookieAccept">J'accepte</button>
 </div>
 

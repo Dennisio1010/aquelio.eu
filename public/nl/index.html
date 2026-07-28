@@ -215,9 +215,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <div class="buy-panel">
     <p class="buy-label">Wachtlijst (gratis)</p>
-    <form class="reserve-form" id="waitlistForm">
-      <input type="email" name="email" placeholder="jouw@email.com" required aria-label="E-mailadres">
-      <button type="submit" class="btn-primary">Inschrijven</button>
+    <form id="waitlistForm">
+      <div class="reserve-form">
+        <input type="email" name="email" placeholder="jouw@email.com" required aria-label="E-mailadres">
+        <button type="submit" class="btn-primary">Inschrijven</button>
+      </div>
+      <label class="consent-check">
+        <input type="checkbox" name="consent" required aria-label="Toestemming voor de verwerking van mijn gegevens">
+        <span>Ik ga ermee akkoord dat mijn e-mailadres wordt gebruikt om mij te informeren over de
+        lancering van het product, overeenkomstig het <a href="/nl/privacybeleid.html">privacybeleid</a>.</span>
+      </label>
     </form>
     <p class="reserve-note" id="waitlistNote"></p>
     <p class="buy-reassure">Gratis, vrijblijvend · Je kunt je op elk moment uitschrijven.</p>
@@ -253,23 +260,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </a>
   <p class="footer-legal">
     Testpagina — product in ontwikkeling, geen definitieve verkoop vóór laboratoriumvalidatie.
-    <a href="#confidentialite" class="footer-link">Privacy</a> ·
+    <a href="/nl/wettelijke-vermeldingen.html" class="footer-link">Wettelijke vermeldingen</a> ·
+    <a href="/nl/privacybeleid.html" class="footer-link">Privacy</a> ·
     Contact: <a href="mailto:contact@aquelio.eu" class="footer-link">contact@aquelio.eu</a>
   </p>
 </footer>
 
-<section class="legal" id="confidentialite">
-  <p class="eyebrow">Privacy</p>
-  <div class="legal-body">
-    <p>Deze pagina verzamelt je e-mailadres (wachtlijst). Deze gegevens worden uitsluitend gebruikt
-    om je op de hoogte te houden van de lancering en worden niet doorverkocht of gedeeld met derden.
-    Je kunt op elk moment de verwijdering van je gegevens aanvragen via het bovenstaande contactadres.</p>
-  </div>
-</section>
-
 <div class="cookie-banner" id="cookieBanner" hidden>
   <p>Deze site gebruikt cookies voor doelgroepmeting en advertentietracking om de interesse in dit
-  product te evalueren. <a href="#confidentialite">Meer info</a>.</p>
+  product te evalueren. <a href="/nl/privacybeleid.html">Meer info</a>.</p>
   <button type="button" class="btn-primary" id="cookieAccept">Ik accepteer</button>
 </div>
 

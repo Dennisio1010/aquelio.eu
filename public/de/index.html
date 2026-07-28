@@ -215,9 +215,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <div class="buy-panel">
     <p class="buy-label">Warteliste (kostenlos)</p>
-    <form class="reserve-form" id="waitlistForm">
-      <input type="email" name="email" placeholder="deine@email.com" required aria-label="E-Mail-Adresse">
-      <button type="submit" class="btn-primary">Anmelden</button>
+    <form id="waitlistForm">
+      <div class="reserve-form">
+        <input type="email" name="email" placeholder="deine@email.com" required aria-label="E-Mail-Adresse">
+        <button type="submit" class="btn-primary">Anmelden</button>
+      </div>
+      <label class="consent-check">
+        <input type="checkbox" name="consent" required aria-label="Einwilligung zur Verarbeitung meiner Daten">
+        <span>Ich bin damit einverstanden, dass meine E-Mail-Adresse verwendet wird, um mich über
+        die Markteinführung des Produkts zu informieren, gemäß der <a href="/de/datenschutz.html">Datenschutzerklärung</a>.</span>
+      </label>
     </form>
     <p class="reserve-note" id="waitlistNote"></p>
     <p class="buy-reassure">Kostenlos, unverbindlich · Jederzeit abmeldbar.</p>
@@ -253,23 +260,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </a>
   <p class="footer-legal">
     Testseite — Produkt in Entwicklung, kein endgültiger Verkauf vor Laborvalidierung.
-    <a href="#confidentialite" class="footer-link">Datenschutz</a> ·
+    <a href="/de/impressum.html" class="footer-link">Impressum</a> ·
+    <a href="/de/datenschutz.html" class="footer-link">Datenschutz</a> ·
     Kontakt: <a href="mailto:contact@aquelio.eu" class="footer-link">contact@aquelio.eu</a>
   </p>
 </footer>
 
-<section class="legal" id="confidentialite">
-  <p class="eyebrow">Datenschutz</p>
-  <div class="legal-body">
-    <p>Diese Seite erfasst deine E-Mail-Adresse (Warteliste). Diese Daten dienen ausschließlich dazu,
-    dich über den Start zu informieren, und werden weder weiterverkauft noch an Dritte weitergegeben.
-    Du kannst jederzeit die Löschung deiner Daten über die oben genannte Kontaktadresse beantragen.</p>
-  </div>
-</section>
-
 <div class="cookie-banner" id="cookieBanner" hidden>
   <p>Diese Website verwendet Cookies zur Reichweitenmessung und Werbe-Tracking, um das Interesse
-  an diesem Produkt zu bewerten. <a href="#confidentialite">Mehr erfahren</a>.</p>
+  an diesem Produkt zu bewerten. <a href="/de/datenschutz.html">Mehr erfahren</a>.</p>
   <button type="button" class="btn-primary" id="cookieAccept">Ich stimme zu</button>
 </div>
 
