@@ -41,6 +41,19 @@ const INVALID_EMAIL_MSG = {
 };
 
 app.use(express.json());
+
+// Les versions NL et DE vivent dans des dossiers (/nl/, /de/) : on impose
+// la barre oblique finale comme forme canonique et on redirige la forme
+// sans slash vers celle-ci (jamais l'inverse), pour éviter les URLs
+// dupliquées vis-à-vis des balises canonical et hreflang.
+app.use((req, res, next) => {
+  if (req.path === "/nl" || req.path === "/de") {
+    const qs = req.url.slice(req.path.length);
+    return res.redirect(301, `${req.path}/${qs}`);
+  }
+  next();
+});
+
 app.use(express.static(path.join(__dirname, "public")));
 
 // Indique au front si le paiement réel est configuré (sinon : mode démo).
