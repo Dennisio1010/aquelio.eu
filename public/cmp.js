@@ -11,13 +11,16 @@
   const KEY = "aquelio-consent";
 
   function grant() {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push(["consent", "update", {
-      ad_storage: "granted",
-      analytics_storage: "granted",
-      ad_user_data: "granted",
-      ad_personalization: "granted",
-    }]);
+    // Le shim gtag() est défini par le snippet Consent Mode chargé juste avant
+    // celui-ci — on le réutilise, on n'en redéfinit pas un second.
+    if (typeof window.gtag === "function") {
+      window.gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'analytics_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+      });
+    }
   }
 
   // Un visiteur déjà consentant lors d'une visite précédente : on redonne

@@ -9,16 +9,17 @@
   var CMP_ID = "CMP_ID_A_DEFINIR"; // à remplacer par l'identifiant réel de la CMP retenue
 </script>
 
-<!-- 1) Consent Mode v2 — valeurs par défaut, avant tout autre script -->
+<!-- 1) Consent Mode v2 — shim gtag standard, valeurs par défaut avant tout autre script -->
 <script>
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push(["consent", "default", {
-    ad_storage: "denied",
-    analytics_storage: "denied",
-    ad_user_data: "denied",
-    ad_personalization: "denied",
-    wait_for_update: 500
-  }]);
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'analytics_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'wait_for_update': 500
+  });
 </script>
 
 <!-- 2) CMP (gestion du consentement) -->
