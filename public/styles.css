@@ -510,13 +510,13 @@ a { color: inherit; }
 }
 
 .reserve-form {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 0.6rem;
   margin-bottom: 0.6rem;
 }
 
 .reserve-form input {
-  flex: 1;
   min-width: 0;
   padding: 0.9em 1.1em;
   border: 1px solid var(--hairline);
@@ -527,7 +527,11 @@ a { color: inherit; }
   color: var(--ink);
 }
 
+.reserve-form input.reserve-full { grid-column: 1 / -1; }
+
 .reserve-form input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.reserve-submit { width: 100%; margin-bottom: 0.9rem; }
 
 .reserve-note {
   min-height: 1.4em;

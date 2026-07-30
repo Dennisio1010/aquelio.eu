@@ -48,6 +48,12 @@ const INVALID_EMAIL_MSG = {
   de: "Ungültige E-Mail-Adresse.",
 };
 
+const MISSING_FIELDS_MSG = {
+  fr: "Merci de renseigner prénom, nom, ville et téléphone.",
+  nl: "Vul alsjeblieft voornaam, achternaam, stad en telefoonnummer in.",
+  de: "Bitte gib Vorname, Nachname, Stadt und Telefonnummer an.",
+};
+
 const CONFIRMATION_EMAIL = {
   fr: {
     subject: "Bienvenue sur la liste d'attente Aquelio",
@@ -126,14 +132,26 @@ app.get("/api/config", (_req, res) => {
   res.json({ paymentReady: Boolean(stripe) });
 });
 
-// Capture d'email — liste d'attente, friction minimale.
+// Capture d'inscription — liste d'attente (identité + contact complets).
 app.post("/api/subscribe", (req, res) => {
   const email = String(req.body?.email || "").trim().toLowerCase();
   const lang = INVALID_EMAIL_MSG[req.body?.lang] ? req.body.lang : "fr";
+  const firstName = String(req.body?.firstName || "").trim();
+  const lastName = String(req.body?.lastName || "").trim();
+  const city = String(req.body?.city || "").trim();
+  const phone = String(req.body?.phone || "").trim();
+
   if (!EMAIL_RE.test(email)) {
     return res.status(400).json({ error: INVALID_EMAIL_MSG[lang] });
   }
-  const line = JSON.stringify({ email, at: new Date().toISOString() }) + "\n";
+  if (!firstName || !lastName || !city || !phone) {
+    return res.status(400).json({ error: MISSING_FIELDS_MSG[lang] });
+  }
+
+  const line = JSON.stringify({
+    firstName, lastName, email, city, phone,
+    at: new Date().toISOString(),
+  }) + "\n";
   fs.appendFile(EMAILS_FILE, line, (err) => {
     if (err) {
       console.error("Erreur écriture email :", err.message);

@@ -222,9 +222,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="buy-label">Warteliste (kostenlos)</p>
     <form id="waitlistForm">
       <div class="reserve-form">
-        <input type="email" name="email" placeholder="deine@email.com" required aria-label="E-Mail-Adresse">
-        <button type="submit" class="btn-primary">Anmelden</button>
+        <input type="text" name="firstName" placeholder="Vorname" required aria-label="Vorname">
+        <input type="text" name="lastName" placeholder="Nachname" required aria-label="Nachname">
+        <input type="email" name="email" placeholder="deine@email.com" required aria-label="E-Mail-Adresse" class="reserve-full">
+        <input type="text" name="city" placeholder="Stadt" required aria-label="Stadt">
+        <input type="tel" name="phone" placeholder="Telefonnummer" required aria-label="Telefonnummer">
       </div>
+      <button type="submit" class="btn-primary reserve-submit">Anmelden</button>
       <label class="consent-check">
         <input type="checkbox" name="consent" required aria-label="Einwilligung zur Verarbeitung meiner Daten">
         <span>Ich bin damit einverstanden, dass meine E-Mail-Adresse verwendet wird, um mich über

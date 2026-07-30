@@ -73,7 +73,15 @@
 
   waitlistForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const email = new FormData(waitlistForm).get("email");
+    const form = new FormData(waitlistForm);
+    const payload = {
+      firstName: form.get("firstName"),
+      lastName: form.get("lastName"),
+      email: form.get("email"),
+      city: form.get("city"),
+      phone: form.get("phone"),
+      lang: LANG,
+    };
     const btn = waitlistForm.querySelector("button");
     btn.disabled = true;
     btn.textContent = t.sending;
@@ -82,7 +90,7 @@
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, lang: LANG }),
+        body: JSON.stringify(payload),
       });
       const data = await res.json();
       if (res.ok) {

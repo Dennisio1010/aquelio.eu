@@ -222,9 +222,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="buy-label">Wachtlijst (gratis)</p>
     <form id="waitlistForm">
       <div class="reserve-form">
-        <input type="email" name="email" placeholder="jouw@email.com" required aria-label="E-mailadres">
-        <button type="submit" class="btn-primary">Inschrijven</button>
+        <input type="text" name="firstName" placeholder="Voornaam" required aria-label="Voornaam">
+        <input type="text" name="lastName" placeholder="Achternaam" required aria-label="Achternaam">
+        <input type="email" name="email" placeholder="jouw@email.com" required aria-label="E-mailadres" class="reserve-full">
+        <input type="text" name="city" placeholder="Stad" required aria-label="Stad">
+        <input type="tel" name="phone" placeholder="Telefoonnummer" required aria-label="Telefoonnummer">
       </div>
+      <button type="submit" class="btn-primary reserve-submit">Inschrijven</button>
       <label class="consent-check">
         <input type="checkbox" name="consent" required aria-label="Toestemming voor de verwerking van mijn gegevens">
         <span>Ik ga ermee akkoord dat mijn e-mailadres wordt gebruikt om mij te informeren over de
