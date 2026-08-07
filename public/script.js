@@ -1,8 +1,8 @@
 /* Aquelio — comportement de page.
-   1. Vidéo d'ambiance du premier écran (desktop uniquement).
-   2. Texte piloté au scroll dans .scrub : les blocs « problème / solution /
-      principe » apparaissent selon la progression, sur un fond fixe (plus
-      de vidéo dans cette section — trop lourd, surtout sur mobile).
+   1. Vidéo d'ambiance du premier écran (desktop et mobile — fichier allégé
+      sur mobile via data-src-mobile).
+   2. Texte au scroll dans .scrub, sur fond fixe (plus de vidéo dans cette
+      section, retirée pour ne pas obliger à défiler longtemps sur mobile).
    3. Signaux de lecture génériques (profondeur de scroll, clics CTA). */
 
 (() => {
@@ -13,12 +13,12 @@
   const dl = (window.dataLayer = window.dataLayer || []);
   dl.push({ page_language: LOCALE });
 
-  /* ══ 1. Premier écran ═══════════════════════════════════════════
-     Sur mobile le fond est un dégradé CSS : aucun octet de vidéo n'est
-     téléchargé avant le formulaire, qui doit s'afficher immédiatement. */
+  /* ══ 1. Premier écran ═══════════════════════════════════════════ */
   const heroVideo = document.getElementById("heroVideo");
-  if (heroVideo && !mobile && !reduced) {
-    heroVideo.src = heroVideo.dataset.srcDesktop;
+  if (heroVideo && !reduced) {
+    heroVideo.src = mobile && heroVideo.dataset.srcMobile
+      ? heroVideo.dataset.srcMobile
+      : heroVideo.dataset.srcDesktop;
 
     // On démarre la boucle plus loin dans le fichier : la section .scrub,
     // juste en dessous, reprend ce même clip depuis le début. Si le hero
