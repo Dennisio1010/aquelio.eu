@@ -19,6 +19,15 @@
   const heroVideo = document.getElementById("heroVideo");
   if (heroVideo && !mobile && !reduced) {
     heroVideo.src = heroVideo.dataset.srcDesktop;
+
+    // On démarre la boucle plus loin dans le fichier : la section .scrub,
+    // juste en dessous, reprend ce même clip depuis le début. Si le hero
+    // ouvrait aussi sur les premières secondes, un visiteur qui défile tout
+    // de suite verrait deux fois la même scène d'affilée.
+    heroVideo.addEventListener("loadedmetadata", () => {
+      if (heroVideo.duration) heroVideo.currentTime = heroVideo.duration * 0.4;
+    }, { once: true });
+
     heroVideo.play().catch(() => { /* autoplay refusé : le dégradé reste */ });
 
     // Hors écran, on rend le décodeur au reste de la page.
