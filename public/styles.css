@@ -420,66 +420,19 @@ a { color: inherit; }
   position: relative;
 }
 
-/* Voile sombre entre la vidéo et le texte : garantit la lisibilité quel
-   que soit le contenu de la vidéo (photo de vie réelle, pas un fond uni),
-   et relie visuellement le hero au reste de la page (thème sombre/corail). */
-.scrub-scrim {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(0deg,
-    rgb(8 23 22 / 0.94) 0%,
-    rgb(8 23 22 / 0.74) 32%,
-    rgb(8 23 22 / 0.48) 60%,
-    rgb(8 23 22 / 0.32) 82%);
-  pointer-events: none;
-}
-
 .scrub-sticky {
   position: sticky;
   top: 0;
   height: 100vh;
   height: 100svh;
   overflow: hidden;
+  /* Même fond que le hero, sans vidéo : plus léger, surtout sur mobile,
+     et le texte se lit sans dépendre du contenu d'un clip. */
+  background:
+    radial-gradient(115% 75% at 10% 6%, #1a4a44 0%, transparent 58%),
+    radial-gradient(95% 65% at 92% 2%, #1d534b 0%, transparent 52%),
+    linear-gradient(180deg, #10312f 0%, #0c2523 62%, #081716 100%);
 }
-
-.scrub-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-
-/* Bouton lecture / pause de l'animation */
-.video-toggle {
-  position: absolute;
-  z-index: 3;
-  top: 5.5rem;
-  right: clamp(1.25rem, 4vw, 3.5rem);
-  width: 2.6rem;
-  height: 2.6rem;
-  border: 0;
-  border-radius: 50%;
-  background: rgb(20 19 18 / 0.10);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: var(--ink);
-  font-size: 0.62rem;
-  line-height: 1;
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-  opacity: 0;
-  transition: opacity 0.4s ease, background 0.2s;
-}
-
-.video-toggle.is-visible { opacity: 1; }
-.video-toggle:hover { background: rgb(20 19 18 / 0.18); }
-.video-toggle:focus-visible { opacity: 1; }
-.video-toggle-icon { letter-spacing: 0.05em; }
 
 /* Étapes superposées (texte) */
 .stage {
@@ -1069,15 +1022,6 @@ a { color: inherit; }
 
   .scrub { height: 300vh; }
 
-  /* Voile renforcé : moins d'espace pour le texte, il faut plus de contraste */
-  .scrub-scrim {
-    background: linear-gradient(0deg,
-      rgb(8 23 22 / 0.97) 0%,
-      rgb(8 23 22 / 0.85) 40%,
-      rgb(8 23 22 / 0.62) 70%,
-      rgb(8 23 22 / 0.48) 100%);
-  }
-
   /* Premier écran : pas de vidéo. Le fond dégradé s'affiche instantanément,
      le formulaire n'attend aucun octet, et le budget vertical de 667 px
      reste tenu (contrôle : le bouton doit être visible sans défiler). */
@@ -1153,8 +1097,6 @@ a { color: inherit; }
   .scrub { height: auto; }
 
   .scrub-sticky { position: relative; height: auto; min-height: 100vh; }
-
-  .scrub-video { position: relative; top: auto; left: auto; transform: none; width: 100%; height: auto; max-width: 100%; max-height: none; }
 
   .stage,
   .principe-targets li {
