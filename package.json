@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Aquelio — page de test Phase 0, vitrine + paiement Stripe hébergé",
+  "description": "Aquelio — landing pages FR/NL/DE, phase 0 : capture code postal + email contre dossier PFAS régional",
   "scripts": {
     "start": "node server.js"
   },

@@ -1,6 +1,8 @@
 // AQUELIO. — serveur minimal pour la page de test Phase 0.
-// Deux rôles actifs : servir le site statique et capter les emails de la
-// liste d'attente (fichier local, pas de base de données à ce stade).
+// Deux rôles actifs : servir le site statique et capter les demandes de
+// dossier PFAS (code postal + email, fichier local, pas de base de données
+// à ce stade). Le code postal est la donnée la plus utile de la phase 0 :
+// il indique où se concentre la demande réelle.
 // La route Stripe reste en place, prête à être réactivée plus tard, mais
 // n'est plus appelée depuis l'interface (plus de paiement à ce stade).
 
@@ -40,7 +42,16 @@ const DATA_DIR = path.join(__dirname, "data");
 const EMAILS_FILE = path.join(DATA_DIR, "emails.jsonl");
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 
+const SITE_URL = (process.env.SITE_URL || "https://aquelio.eu").replace(/\/$/, "");
+
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// BE : 4 chiffres, jamais de zéro initial (1000–9992).
+// DE : 5 chiffres, zéro initial fréquent (01067 Dresde).
+const POSTAL_RE = {
+  BE: /^[1-9]\d{3}$/,
+  DE: /^\d{5}$/,
+};
 
 const INVALID_EMAIL_MSG = {
   fr: "Adresse email invalide.",
@@ -48,63 +59,87 @@ const INVALID_EMAIL_MSG = {
   de: "Ungültige E-Mail-Adresse.",
 };
 
-const MISSING_FIELDS_MSG = {
-  fr: "Merci de renseigner prénom, nom, ville et téléphone.",
-  nl: "Vul alsjeblieft voornaam, achternaam, stad en telefoonnummer in.",
-  de: "Bitte gib Vorname, Nachname, Stadt und Telefonnummer an.",
+const INVALID_POSTAL_MSG = {
+  fr: "Code postal invalide.",
+  nl: "Ongeldige postcode.",
+  de: "Ungültige Postleitzahl.",
 };
 
+// Répartition des codes postaux belges — voir public/thanks.js, qui applique
+// exactement la même règle côté client pour choisir le PDF à télécharger.
+function regionFor(country, postalCode, locale) {
+  if (country === "DE") return "deutschland";
+
+  const n = Number.parseInt(postalCode, 10);
+  if (!Number.isFinite(n)) return locale === "nl" ? "vlaanderen" : "wallonie";
+  if (n >= 1500 && n <= 3999) return "vlaanderen";
+  if (n >= 8000 && n <= 9999) return "vlaanderen";
+  if (n >= 1000 && n <= 7999) return "wallonie";
+  return locale === "nl" ? "vlaanderen" : "wallonie";
+}
+
+// Le dossier est téléchargé sur la page de remerciement ; cet email n'est
+// qu'un filet de secours (et une trace) — il ne conditionne pas la livraison.
 const CONFIRMATION_EMAIL = {
   fr: {
-    subject: "Bienvenue sur la liste d'attente Aquelio",
-    text:
-`Merci de ton inscription à la liste d'attente Aquelio !
+    subject: "Votre dossier PFAS — Aquelio",
+    body: (url) =>
+`Merci pour votre demande.
 
-Tu seras informé·e en priorité de l'avancement du produit et de la date de lancement.
+Votre dossier PFAS est disponible ici :
+${url}
 
-Aquelio est un filtre à eau anti-PFAS actuellement en développement — aucune vente ferme n'est effectuée avant validation par un laboratoire indépendant.
+Vous serez prévenu·e par email dès que le rapport du laboratoire indépendant sera publié.
 
-Tu peux te désinscrire à tout moment en répondant à cet email.
+Aquelio est un filtre à eau anti-PFAS en cours de développement. Aucune vente ferme n'est effectuée avant validation en laboratoire indépendant.
+
+Vous pouvez vous désinscrire à tout moment en répondant à cet email.
 
 — L'équipe Aquelio`,
   },
   nl: {
-    subject: "Welkom op de Aquelio-wachtlijst",
-    text:
-`Bedankt voor je inschrijving op de Aquelio-wachtlijst!
+    subject: "Jouw PFAS-dossier — Aquelio",
+    body: (url) =>
+`Bedankt voor je aanvraag.
 
-Je wordt als eerste op de hoogte gehouden van de voortgang van het product en de lanceringsdatum.
+Je PFAS-dossier staat hier klaar:
+${url}
 
-Aquelio is een anti-PFAS waterfilter die momenteel in ontwikkeling is — er vindt geen definitieve verkoop plaats vóór validatie door een onafhankelijk laboratorium.
+Je krijgt een e-mail zodra het rapport van het onafhankelijke laboratorium gepubliceerd is.
+
+Aquelio is een anti-PFAS waterfilter in ontwikkeling. Er vindt geen definitieve verkoop plaats vóór validatie door een onafhankelijk laboratorium.
 
 Je kunt je op elk moment uitschrijven door op deze e-mail te antwoorden.
 
 — Het Aquelio-team`,
   },
   de: {
-    subject: "Willkommen auf der Aquelio-Warteliste",
-    text:
-`Danke für deine Anmeldung zur Aquelio-Warteliste!
+    subject: "Ihr PFAS-Dossier — Aquelio",
+    body: (url) =>
+`Danke für Ihre Anfrage.
 
-Du wirst als Erste·r über den Fortschritt des Produkts und den Starttermin informiert.
+Ihr PFAS-Dossier steht hier bereit:
+${url}
 
-Aquelio ist ein Anti-PFAS-Wasserfilter, der sich aktuell in Entwicklung befindet — ein endgültiger Verkauf erfolgt erst nach Validierung durch ein unabhängiges Labor.
+Sie erhalten eine E-Mail, sobald der Bericht des unabhängigen Labors veröffentlicht ist.
 
-Du kannst dich jederzeit abmelden, indem du auf diese E-Mail antwortest.
+Aquelio ist ein Anti-PFAS-Wasserfilter in Entwicklung. Ein endgültiger Verkauf erfolgt erst nach Validierung durch ein unabhängiges Labor.
+
+Sie können sich jederzeit abmelden, indem Sie auf diese E-Mail antworten.
 
 — Das Aquelio-Team`,
   },
 };
 
-async function sendConfirmationEmail(email, lang) {
+async function sendConfirmationEmail(email, locale, region) {
   if (!resend) return;
-  const content = CONFIRMATION_EMAIL[lang] || CONFIRMATION_EMAIL.fr;
+  const content = CONFIRMATION_EMAIL[locale] || CONFIRMATION_EMAIL.fr;
   try {
     await resend.emails.send({
       from: EMAIL_FROM,
       to: email,
       subject: content.subject,
-      text: content.text,
+      text: content.body(`${SITE_URL}/assets/dossiers/${region}.pdf`),
     });
   } catch (err) {
     console.error("Erreur envoi email de confirmation :", err.message);
@@ -132,34 +167,67 @@ app.get("/api/config", (_req, res) => {
   res.json({ paymentReady: Boolean(stripe) });
 });
 
-// Capture d'inscription — liste d'attente (identité + contact complets).
+// Demande de dossier PFAS — deux champs seulement : code postal et email.
 app.post("/api/subscribe", (req, res) => {
   const email = String(req.body?.email || "").trim().toLowerCase();
-  const lang = INVALID_EMAIL_MSG[req.body?.lang] ? req.body.lang : "fr";
-  const firstName = String(req.body?.firstName || "").trim();
-  const lastName = String(req.body?.lastName || "").trim();
-  const city = String(req.body?.city || "").trim();
-  const phone = String(req.body?.phone || "").trim();
+  const postalCode = String(req.body?.postalCode || "").trim();
+  const locale = INVALID_EMAIL_MSG[req.body?.locale] ? req.body.locale : "fr";
+  const country = POSTAL_RE[String(req.body?.country || "").toUpperCase()]
+    ? String(req.body.country).toUpperCase()
+    : (locale === "de" ? "DE" : "BE");
 
   if (!EMAIL_RE.test(email)) {
-    return res.status(400).json({ error: INVALID_EMAIL_MSG[lang] });
+    return res.status(400).json({ error: INVALID_EMAIL_MSG[locale] });
   }
-  if (!firstName || !lastName || !city || !phone) {
-    return res.status(400).json({ error: MISSING_FIELDS_MSG[lang] });
+  if (!POSTAL_RE[country].test(postalCode)) {
+    return res.status(400).json({ error: INVALID_POSTAL_MSG[locale] });
   }
 
+  const region = regionFor(country, postalCode, locale);
+
   const line = JSON.stringify({
-    firstName, lastName, email, city, phone,
+    email, postalCode, country, region, locale,
     at: new Date().toISOString(),
   }) + "\n";
+
   fs.appendFile(EMAILS_FILE, line, (err) => {
     if (err) {
-      console.error("Erreur écriture email :", err.message);
-      return res.status(500).json({ error: "Impossible d'enregistrer l'email." });
+      console.error("Erreur écriture demande :", err.message);
+      return res.status(500).json({ error: "Impossible d'enregistrer la demande." });
     }
-    res.json({ ok: true });
-    sendConfirmationEmail(email, lang);
+    res.json({ ok: true, region });
+    sendConfirmationEmail(email, locale, region);
   });
+});
+
+// Export CSV des demandes — c'est la donnée de la phase 0 : où se concentre
+// la demande. Protégé par EXPORT_TOKEN ; sans jeton configuré, la route est
+// simplement absente plutôt qu'ouverte.
+app.get("/api/export.csv", (req, res) => {
+  const token = process.env.EXPORT_TOKEN;
+  if (!token) return res.status(404).end();
+  if (req.query.token !== token) return res.status(403).end();
+
+  let raw = "";
+  try {
+    raw = fs.readFileSync(EMAILS_FILE, "utf8");
+  } catch {
+    raw = "";
+  }
+
+  const rows = raw.split("\n").filter(Boolean).map((line) => {
+    try { return JSON.parse(line); } catch { return null; }
+  }).filter(Boolean);
+
+  const escape = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+  const csv = ["email,postalCode,country,region,locale,at"]
+    .concat(rows.map((r) =>
+      [r.email, r.postalCode, r.country, r.region, r.locale, r.at].map(escape).join(",")))
+    .join("\n");
+
+  res.type("text/csv; charset=utf-8");
+  res.setHeader("Content-Disposition", 'attachment; filename="aquelio-demandes.csv"');
+  res.send(csv);
 });
 
 // Crée une session Stripe Checkout pour le dépôt remboursable (qty 1 fixe).
@@ -194,7 +262,7 @@ app.post("/api/checkout", async (_req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Aquelio — page de test sur http://localhost:${PORT}`);
+  console.log(`Aquelio — landing pages sur http://localhost:${PORT}`);
   console.log(stripe ? "Paiement Stripe : activé." : "Paiement Stripe : mode démo (aucune clé).");
   console.log(resend ? "Email de confirmation (Resend) : activé." : "Email de confirmation (Resend) : mode démo (aucune clé).");
 });

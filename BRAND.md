@@ -6,10 +6,12 @@ fichiers.
 
 ## Le mark
 
-Un entonnoir à 3 étages surmontant une goutte d'eau — évoque directement les
-4 étapes de filtration présentées sur le site (préfiltre, charbon actif,
-membrane, post-filtration minérale) plutôt qu'un symbole générique lié à l'eau
-(goutte seule, vague...).
+Un entonnoir à 3 étages surmontant une goutte d'eau — évoque la filtration
+et l'eau qui en sort, plutôt qu'un symbole générique lié à l'eau (goutte
+seule, vague...). Les trois étages sont graphiques : l'architecture réelle
+du produit (nombre d'étages, technologie) n'est pas encore arrêtée — voir
+`FOURNISSEUR.md`. Ne pas les légender comme des « étapes de filtration »
+tant que ce point n'est pas confirmé.
 
 ## Fichiers disponibles (`public/assets/`)
 
