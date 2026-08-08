@@ -82,7 +82,7 @@ function regionFor(country, postalCode, locale) {
 // qu'un filet de secours (et une trace) — il ne conditionne pas la livraison.
 const CONFIRMATION_EMAIL = {
   fr: {
-    subject: "Votre dossier PFAS — Aquelio",
+    subject: "Votre dossier PFAS | Aquelio",
     body: (url) =>
 `Merci pour votre demande.
 
@@ -95,10 +95,10 @@ Aquelio est un filtre à eau anti-PFAS en cours de développement. Aucune vente 
 
 Vous pouvez vous désinscrire à tout moment en répondant à cet email.
 
-— L'équipe Aquelio`,
+L'équipe Aquelio`,
   },
   nl: {
-    subject: "Jouw PFAS-dossier — Aquelio",
+    subject: "Jouw PFAS-dossier | Aquelio",
     body: (url) =>
 `Bedankt voor je aanvraag.
 
@@ -111,10 +111,10 @@ Aquelio is een anti-PFAS waterfilter in ontwikkeling. Er vindt geen definitieve 
 
 Je kunt je op elk moment uitschrijven door op deze e-mail te antwoorden.
 
-— Het Aquelio-team`,
+Het Aquelio-team`,
   },
   de: {
-    subject: "Ihr PFAS-Dossier — Aquelio",
+    subject: "Ihr PFAS-Dossier | Aquelio",
     body: (url) =>
 `Danke für Ihre Anfrage.
 
@@ -127,7 +127,7 @@ Aquelio ist ein Anti-PFAS-Wasserfilter in Entwicklung. Ein endgültiger Verkauf 
 
 Sie können sich jederzeit abmelden, indem Sie auf diese E-Mail antworten.
 
-— Das Aquelio-Team`,
+Das Aquelio-Team`,
   },
 };
 

@@ -16,19 +16,19 @@
 
   const LABELS = {
     fr: {
-      wallonie: "Dossier PFAS — Wallonie & Bruxelles",
-      vlaanderen: "Dossier PFAS — Flandre",
-      deutschland: "Dossier PFAS — Allemagne",
+      wallonie: "Dossier PFAS, Wallonie & Bruxelles",
+      vlaanderen: "Dossier PFAS, Flandre",
+      deutschland: "Dossier PFAS, Allemagne",
     },
     nl: {
-      wallonie: "PFAS-dossier — Wallonië & Brussel",
-      vlaanderen: "PFAS-dossier — Vlaanderen",
-      deutschland: "PFAS-dossier — Duitsland",
+      wallonie: "PFAS-dossier, Wallonië & Brussel",
+      vlaanderen: "PFAS-dossier, Vlaanderen",
+      deutschland: "PFAS-dossier, Duitsland",
     },
     de: {
-      wallonie: "PFAS-Dossier — Wallonie & Brüssel",
-      vlaanderen: "PFAS-Dossier — Flandern",
-      deutschland: "PFAS-Dossier — Deutschland",
+      wallonie: "PFAS-Dossier, Wallonie & Brüssel",
+      vlaanderen: "PFAS-Dossier, Flandern",
+      deutschland: "PFAS-Dossier, Deutschland",
     },
   };
 

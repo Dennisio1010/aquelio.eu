@@ -1093,8 +1093,6 @@ a { color: inherit; }
 
   .features-grid { grid-template-columns: 1fr; }
 
-  .emotion-line br { display: none; }
-
   .thanks { padding-top: 6rem; }
   .thanks-download { flex-direction: column; align-items: stretch; }
   .thanks-download .btn-primary { text-align: center; }
