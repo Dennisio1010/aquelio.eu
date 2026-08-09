@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Dossier PFAS, Wallonie & Bruxelles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Instrument Sans", Arial, Helvetica, sans-serif;
+    color: #1b1e1c;
+    background: #f5f3ec;
+    font-size: 11.5pt;
+    line-height: 1.55;
+  }
+  h1, h2, h3, .mark-word {
+    font-family: "Archivo", Arial, Helvetica, sans-serif;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm 18mm;
+    page-break-after: always;
+    position: relative;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* Cover */
+  .cover {
+    background: #0f2e2e;
+    color: #f5f3ec;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cover-top { display: flex; align-items: center; gap: 10px; }
+  .cover-mark { width: 34px; height: 34px; }
+  .mark-word { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; }
+  .cover-eyebrow {
+    font-family: "Instrument Sans", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 11px;
+    color: #ff8f7f;
+    margin: 60px 0 14px;
+  }
+  .cover-title {
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.08;
+    margin: 0 0 18px;
+    max-width: 9.5em;
+  }
+  .cover-sub {
+    font-size: 15px;
+    color: #cfe0da;
+    max-width: 30em;
+    line-height: 1.5;
+  }
+  .cover-bar { height: 4px; width: 64px; background: #ff6b5b; margin-bottom: 20px; }
+  .cover-footer {
+    font-size: 10.5px;
+    color: #9db3ac;
+    border-top: 1px solid #22463f;
+    padding-top: 14px;
+    line-height: 1.6;
+  }
+  .cover-date { font-size: 11px; color: #cfe0da; margin-top: 4px; }
+
+  /* Content pages */
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 10px;
+    color: #ff6b5b;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  h2.title {
+    font-size: 24px;
+    color: #0f2e2e;
+    margin: 0 0 18px;
+    line-height: 1.2;
+  }
+  h3.sub {
+    font-size: 14px;
+    color: #0f2e2e;
+    margin: 22px 0 8px;
+  }
+  p { margin: 0 0 10px; }
+  .lead { font-size: 12.5px; color: #3a3f3c; margin-bottom: 20px; }
+  .cite {
+    font-size: 9.5px;
+    color: #8a7a6a;
+    font-style: italic;
+    margin: -4px 0 14px;
+  }
+  .stat-row {
+    display: flex;
+    gap: 14px;
+    margin: 16px 0 20px;
+  }
+  .stat {
+    flex: 1;
+    background: #fff;
+    border: 1px solid #e3ddcf;
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .stat-num { font-family: "Archivo", sans-serif; font-size: 21px; color: #0f2e2e; font-weight: 700; }
+  .stat-label { font-size: 9.5px; color: #6b6459; margin-top: 3px; }
+  .callout {
+    background: #eef2ef;
+    border-left: 3px solid #0f2e2e;
+    padding: 12px 16px;
+    font-size: 11px;
+    margin: 14px 0 18px;
+  }
+  .callout.coral { border-left-color: #ff6b5b; background: #fdf0ed; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0 18px; font-size: 10.5px; }
+  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid #e3ddcf; }
+  th { color: #0f2e2e; font-family: "Archivo", sans-serif; font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .foot-page {
+    position: absolute;
+    bottom: 12mm;
+    left: 18mm;
+    right: 18mm;
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    color: #a39c8c;
+    border-top: 1px solid #e3ddcf;
+    padding-top: 8px;
+  }
+  ul { margin: 0 0 14px; padding-left: 18px; }
+  li { margin-bottom: 6px; }
+  .sources-list { font-size: 10px; color: #4a4640; }
+  .sources-list li { margin-bottom: 8px; }
+  .disclaimer {
+    font-size: 9.5px;
+    color: #6b6459;
+    background: #eef2ef;
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin-top: 24px;
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="page cover">
+  <div class="cover-top">
+    <svg class="cover-mark" viewBox="230 235 540 590" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="250,250 750,250 663.75,388 336.25,388" fill="#f5f3ec"/>
+      <polygon points="345,402 655,402 582.5,518 417.5,518" fill="#f5f3ec"/>
+      <polygon points="426.25,532 573.75,532 500,650" fill="#f5f3ec"/>
+      <path d="M500,665 L548,761 A48,48 0 1 1 452,761 Z" fill="#ff6b5b"/>
+    </svg>
+    <span class="mark-word">Aquelio</span>
+  </div>
+
+  <div>
+    <p class="cover-eyebrow">Dossier régional PFAS</p>
+    <h1 class="cover-title">Wallonie<br>&amp; Bruxelles</h1>
+    <div class="cover-bar"></div>
+    <p class="cover-sub">Ce que disent les autorités wallonnes sur les PFAS dans l'eau de distribution&nbsp;: réglementation, résultats de monitoring, zones concernées et suivi sanitaire.</p>
+    <p class="cover-date">Édition août 2026, sources citées à chaque affirmation</p>
+  </div>
+
+  <div class="cover-footer">
+    Document informatif indépendant, sans lien avec un distributeur d'eau.<br>
+    Aquelio est un filtre à eau anti-PFAS en cours de développement ; ce dossier ne fait la promotion d'aucun produit ni d'aucune technologie de filtration spécifique.
+  </div>
+</section>
+
+<!-- PAGE 2 : LA REGLEMENTATION -->
+<section class="page">
+  <p class="eyebrow">01 · Cadre légal</p>
+  <h2 class="title">La réglementation, en clair</h2>
+  <p class="lead">Depuis 2023, une nouvelle norme européenne encadre la présence de PFAS dans l'eau du robinet. La Wallonie a choisi de l'appliquer plus tôt que le reste de l'Union.</p>
+
+  <h3 class="sub">La directive européenne</h3>
+  <p>La directive (UE) 2020/2184 relative à la qualité des eaux destinées à la consommation humaine impose, dans tous les États membres, une valeur limite de 100&nbsp;ng/L (0,1&nbsp;µg/L) pour la somme de 20 substances PFAS (« PFAS-20 »), au plus tard le 12 janvier 2026.</p>
+  <p class="cite">Source : Directive (UE) 2020/2184 ; Normec Group, « PFAS dans l'eau potable : nouvelle norme ».</p>
+
+  <h3 class="sub">La transposition wallonne</h3>
+  <p>La Wallonie a transposé cette directive par le décret du 30 avril 2023 et l'arrêté du Gouvernement wallon du 1er juin 2023. Le Gouvernement a choisi d'avancer l'entrée en vigueur de la norme PFAS-20 à 2025, un an avant l'échéance européenne.</p>
+  <p class="cite">Source : Gouvernement wallon, arrêté du 1er juin 2023 ; Grondrecht vzw, « Wallonie durcit la norme PFAS pour l'eau potable ».</p>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="stat-num">100 ng/L</div>
+      <div class="stat-label">Norme PFAS-20 (somme de 20 substances), en vigueur en Wallonie depuis 2025</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4 ng/L</div>
+      <div class="stat-label">Valeur cible PFAS-4 (4 substances les plus préoccupantes), à atteindre pour le 12 janvier 2028</div>
+    </div>
+  </div>
+  <p class="cite">Source : SPW Environnement, rapport « Les PFAS dans les eaux de distribution en Wallonie : État des lieux », mars 2026.</p>
+
+  <div class="callout">
+    Les substances PFAS-4 (PFOA, PFOS, PFHxS et PFNA) sont considérées comme les plus préoccupantes pour la santé humaine parmi les PFAS mesurés dans l'eau.
+  </div>
+
+  <div class="foot-page"><span>Aquelio · Dossier PFAS Wallonie</span><span>02</span></div>
+</section>
+
+<!-- PAGE 3 : LE MONITORING EN CHIFFRES -->
+<section class="page">
+  <p class="eyebrow">02 · Le monitoring</p>
+  <h2 class="title">Le suivi de l'eau, en chiffres</h2>
+  <p class="lead">La Wallonie publie un état des lieux détaillé de ses résultats de mesure PFAS, mis à jour chaque année.</p>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="stat-num">3 160</div>
+      <div class="stat-label">Résultats d'analyse PFAS collectés entre le 01/09/2023 et le 31/12/2025</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">641</div>
+      <div class="stat-label">Zones de distribution publique en Wallonie, au 20/01/2026</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">48</div>
+      <div class="stat-label">Distributeurs d'eau (38 régies communales, 9 intercommunales, la SWDE)</div>
+    </div>
+  </div>
+  <p class="cite">Source : SPW Environnement, rapport « Les PFAS dans les eaux de distribution en Wallonie : État des lieux », mars 2026.</p>
+
+  <h3 class="sub">Où consulter les résultats de votre commune</h3>
+  <p>L'outil cartographique de SPW Environnement permet de consulter les résultats par zone de distribution ; il est mis à jour chaque année en juin. Les données brutes sont également disponibles via l'ODWB (Open Data Wallonie-Bruxelles), issues du SPW ARNE.</p>
+  <p class="cite">Source : SPW Environnement, outil cartographique ; ODWB.</p>
+
+  <table>
+    <tr><th>Distributeur</th><th>Où consulter les résultats</th></tr>
+    <tr><td>SWDE</td><td>Portail « Qualité de mon eau »</td></tr>
+    <tr><td>CILE</td><td>Rapport annuel de qualité</td></tr>
+    <tr><td>INASEP</td><td>Rapport annuel de qualité</td></tr>
+    <tr><td>inBW</td><td>FAQ &amp; rapport annuel de qualité</td></tr>
+    <tr><td>IEG / AIEC</td><td>Rapport annuel de qualité</td></tr>
+  </table>
+  <p class="cite">Source : sites institutionnels des distributeurs cités.</p>
+
+  <div class="foot-page"><span>Aquelio · Dossier PFAS Wallonie</span><span>03</span></div>
+</section>
+
+<!-- PAGE 4 : FEEDER DU HAINAUT -->
+<section class="page">
+  <p class="eyebrow">03 · Zone à risque documentée</p>
+  <h2 class="title">Le Feeder du Hainaut, le cas le plus suivi</h2>
+  <p class="lead">Les seuls dépassements significatifs et documentés en Wallonie concernent la zone alimentée par le Feeder du Hainaut.</p>
+
+  <p>Les communes concernées par des dépassements historiques sont Chièvres, Ath, Beloeil, Leuze-en-Hainaut, Florennes et Nandrin, ainsi que Ronquières et Hennuyères (Braine-le-Comte).</p>
+  <p class="cite">Source : ISSeP, périmètre de la campagne de biomonitoring lancée en janvier 2024.</p>
+
+  <h3 class="sub">Les mesures de traitement mises en place</h3>
+  <ul>
+    <li>Vivaqua a renforcé le traitement au charbon actif à la station de potabilisation d'Écaussinnes ; les valeurs PFAS-4 y sont désormais indétectables.</li>
+    <li>La SWDE a équipé le réservoir de Haut-Ittre de deux silos de filtres à charbon actif, mis en service fin septembre 2025, complétés par une unité mobile à résine échangeuse d'ions depuis janvier 2026.</li>
+    <li>Ronquières a été reconnectée à la station de potabilisation d'Écaussinnes via 2,5&nbsp;km de nouvelles conduites, travaux achevés fin 2025.</li>
+  </ul>
+  <p class="cite">Source : SPW Environnement ; L'Avenir, « PFAS-4 : une amélioration de la qualité de l'eau fin 2025 », 1er septembre 2025.</p>
+
+  <div class="callout coral">
+    <strong>Résultats les plus récents (février 2026)</strong>, Ronquières&nbsp;: 11,8&nbsp;ng/L PFAS-20. Hennuyères&nbsp;: 13,2&nbsp;ng/L PFAS-20. PFAS-4&nbsp;: 0&nbsp;ng/L dans les deux zones. Ces deux valeurs sont désormais sous la norme de 100&nbsp;ng/L.
+  </div>
+  <p class="cite">Source : Ville de Braine-le-Comte, page « PFAS dans l'eau du robinet ».</p>
+
+  <div class="foot-page"><span>Aquelio · Dossier PFAS Wallonie</span><span>04</span></div>
+</section>
+
+<!-- PAGE 5 : SUIVI SANITAIRE -->
+<section class="page">
+  <p class="eyebrow">04 · Suivi sanitaire</p>
+  <h2 class="title">La campagne de biomonitoring ISSeP</h2>
+  <p class="lead">Depuis janvier 2024, l'Institut scientifique de service public (ISSeP) mène une étude de biomonitoring sanguin auprès des habitants des zones concernées.</p>
+
+  <h3 class="sub">Qui peut participer</h3>
+  <p>La campagne a débuté par le secteur Chièvres–Ath–Beloeil–Leuze-en-Hainaut, avec une extension prévue vers Feluy et Nimy. Peuvent s'inscrire les personnes ayant vécu dans la zone concernée entre 2017 et aujourd'hui.</p>
+
+  <h3 class="sub">Ce qui est mesuré</h3>
+  <p>Au moins sept composés PFAS sont recherchés dans des prélèvements sanguins, dont le PFOA et le PFOS, réalisés par des professionnels de santé formés, après un questionnaire sur le mode de vie.</p>
+
+  <h3 class="sub">Ce que deviennent les résultats</h3>
+  <p>Les résultats individuels sont communiqués à chaque participant par courrier, email ou SMS. Les résultats collectifs de l'étude seront publiés dans un rapport sur le site de l'ISSeP.</p>
+  <p class="cite">Source : ISSeP, campagne de biomonitoring PFAS.</p>
+
+  <div class="callout">
+    À la date de cette édition, aucun résultat collectif n'a encore été publié. Ce dossier sera mis à jour dès leur parution.
+  </div>
+
+  <div class="foot-page"><span>Aquelio · Dossier PFAS Wallonie</span><span>05</span></div>
+</section>
+
+<!-- PAGE 6 : CE QUE CELA SIGNIFIE + SOURCES -->
+<section class="page">
+  <p class="eyebrow">05 · En pratique</p>
+  <h2 class="title">Ce que cela signifie pour votre foyer</h2>
+
+  <ul>
+    <li>Si vous habitez une des communes citées (zone du Feeder du Hainaut), votre distributeur publie ses résultats PFAS ; vous pouvez les consulter directement auprès de la SWDE, de Vivaqua ou de votre intercommunale.</li>
+    <li>Pour le reste du territoire wallon, aucun dépassement de la norme PFAS-20 n'est actuellement rapporté sur les 3 160 résultats du rapport SPW de mars 2026.</li>
+    <li>La filtration domestique reste une précaution possible, en complément du suivi réglementaire et des travaux déjà réalisés par les distributeurs (pas en remplacement), en particulier pour les foyers situés dans une zone historiquement concernée.</li>
+  </ul>
+
+  <h3 class="sub">Sources citées dans ce dossier</h3>
+  <ul class="sources-list">
+    <li>SPW Environnement, « Les PFAS dans les eaux de distribution en Wallonie : État des lieux », version mars 2026.</li>
+    <li>SPW Environnement, outil cartographique PFAS, mise à jour annuelle en juin.</li>
+    <li>ODWB (Open Data Wallonie-Bruxelles), jeux de données SPW ARNE.</li>
+    <li>ISSeP, campagne de biomonitoring sanguin PFAS, lancée en janvier 2024.</li>
+    <li>Gouvernement wallon, arrêté du 1er juin 2023 ; décret du 30 avril 2023.</li>
+    <li>Ville de Braine-le-Comte, page « PFAS dans l'eau du robinet ».</li>
+    <li>L'Avenir, « PFAS-4 : une amélioration de la qualité de l'eau fin 2025 grâce aux filtres à charbon actif du réservoir de Haut-Ittre », 1er septembre 2025.</li>
+    <li>Distributeurs d'eau wallons, SWDE, Vivaqua, CILE, INASEP, inBW, IEG, AIEC.</li>
+  </ul>
+
+  <div class="disclaimer">
+    Ce dossier est un document d'information indépendant, compilé à partir de sources publiques officielles. Il ne constitue pas un avis médical ni une recommandation d'achat. Aquelio est un filtre à eau anti-PFAS actuellement en développement ; aucune vente ferme n'est effectuée avant validation par un laboratoire indépendant. Contact&nbsp;: contact@aquelio.eu
+  </div>
+
+  <div class="foot-page"><span>Aquelio · Dossier PFAS Wallonie</span><span>06</span></div>
+</section>
+
+</body>
+</html>

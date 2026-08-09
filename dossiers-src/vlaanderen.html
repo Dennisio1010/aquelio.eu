@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<title>PFAS-dossier, Vlaanderen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Instrument Sans", Arial, Helvetica, sans-serif;
+    color: #1b1e1c;
+    background: #f5f3ec;
+    font-size: 11.5pt;
+    line-height: 1.55;
+  }
+  h1, h2, h3, .mark-word { font-family: "Archivo", Arial, Helvetica, sans-serif; }
+  .page { width: 210mm; min-height: 297mm; padding: 20mm 18mm; page-break-after: always; position: relative; }
+  .page:last-child { page-break-after: auto; }
+
+  .cover { background: #0f2e2e; color: #f5f3ec; display: flex; flex-direction: column; justify-content: space-between; }
+  .cover-top { display: flex; align-items: center; gap: 10px; }
+  .cover-mark { width: 34px; height: 34px; }
+  .mark-word { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; }
+  .cover-eyebrow { text-transform: uppercase; letter-spacing: 0.14em; font-size: 11px; color: #ff8f7f; margin: 60px 0 14px; }
+  .cover-title { font-size: 46px; font-weight: 700; line-height: 1.08; margin: 0 0 18px; max-width: 9.5em; }
+  .cover-sub { font-size: 15px; color: #cfe0da; max-width: 30em; line-height: 1.5; }
+  .cover-bar { height: 4px; width: 64px; background: #ff6b5b; margin-bottom: 20px; }
+  .cover-footer { font-size: 10.5px; color: #9db3ac; border-top: 1px solid #22463f; padding-top: 14px; line-height: 1.6; }
+  .cover-date { font-size: 11px; color: #cfe0da; margin-top: 4px; }
+
+  .eyebrow { text-transform: uppercase; letter-spacing: 0.12em; font-size: 10px; color: #ff6b5b; font-weight: 600; margin: 0 0 8px; }
+  h2.title { font-size: 24px; color: #0f2e2e; margin: 0 0 18px; line-height: 1.2; }
+  h3.sub { font-size: 14px; color: #0f2e2e; margin: 22px 0 8px; }
+  p { margin: 0 0 10px; }
+  .lead { font-size: 12.5px; color: #3a3f3c; margin-bottom: 20px; }
+  .cite { font-size: 9.5px; color: #8a7a6a; font-style: italic; margin: -4px 0 14px; }
+  .stat-row { display: flex; gap: 14px; margin: 16px 0 20px; }
+  .stat { flex: 1; background: #fff; border: 1px solid #e3ddcf; border-radius: 8px; padding: 12px 14px; }
+  .stat-num { font-family: "Archivo", sans-serif; font-size: 21px; color: #0f2e2e; font-weight: 700; }
+  .stat-label { font-size: 9.5px; color: #6b6459; margin-top: 3px; }
+  .callout { background: #eef2ef; border-left: 3px solid #0f2e2e; padding: 12px 16px; font-size: 11px; margin: 14px 0 18px; }
+  .callout.coral { border-left-color: #ff6b5b; background: #fdf0ed; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0 18px; font-size: 10.5px; }
+  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid #e3ddcf; }
+  th { color: #0f2e2e; font-family: "Archivo", sans-serif; font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .foot-page { position: absolute; bottom: 12mm; left: 18mm; right: 18mm; display: flex; justify-content: space-between; font-size: 9px; color: #a39c8c; border-top: 1px solid #e3ddcf; padding-top: 8px; }
+  ul { margin: 0 0 14px; padding-left: 18px; }
+  li { margin-bottom: 6px; }
+  .sources-list { font-size: 10px; color: #4a4640; }
+  .sources-list li { margin-bottom: 8px; }
+  .disclaimer { font-size: 9.5px; color: #6b6459; background: #eef2ef; padding: 12px 14px; border-radius: 8px; margin-top: 24px; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="page cover">
+  <div class="cover-top">
+    <svg class="cover-mark" viewBox="230 235 540 590" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="250,250 750,250 663.75,388 336.25,388" fill="#f5f3ec"/>
+      <polygon points="345,402 655,402 582.5,518 417.5,518" fill="#f5f3ec"/>
+      <polygon points="426.25,532 573.75,532 500,650" fill="#f5f3ec"/>
+      <path d="M500,665 L548,761 A48,48 0 1 1 452,761 Z" fill="#ff6b5b"/>
+    </svg>
+    <span class="mark-word">Aquelio</span>
+  </div>
+
+  <div>
+    <p class="cover-eyebrow">Regionaal PFAS-dossier</p>
+    <h1 class="cover-title">Vlaanderen</h1>
+    <div class="cover-bar"></div>
+    <p class="cover-sub">Wat de Vlaamse overheid zegt over PFAS&nbsp;: de kwaliteit van het kraanwater, de bodem- en grondwaterproblematiek rond Zwijndrecht, en wat dit betekent voor uw gezin.</p>
+    <p class="cover-date">Editie augustus 2026, bronnen bij elke bewering</p>
+  </div>
+
+  <div class="cover-footer">
+    Onafhankelijk informatief document, zonder link met een drinkwatermaatschappij.<br>
+    Aquelio is een anti-PFAS waterfilter in ontwikkeling ; dit dossier promoot geen enkel product of specifieke filtratietechnologie.
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page">
+  <p class="eyebrow">01 · Het kraanwater</p>
+  <h2 class="title">Kraanwater: conform de norm</h2>
+  <p class="lead">De belangrijkste vaststelling voor Vlaanderen is duidelijk: het probleem zit niet in het kraanwater, maar in de bodem.</p>
+
+  <h3 class="sub">De Europese norm</h3>
+  <p>De Europese richtlijn (EU) 2020/2184 legt sinds 12 januari 2026 een grenswaarde op van 100&nbsp;ng/l (0,1&nbsp;µg/l) voor de som van 20 PFAS-stoffen ("PFAS-20") in water bestemd voor menselijke consumptie.</p>
+  <p class="cite">Bron: Richtlijn (EU) 2020/2184; Normec Group, "PFAS in drinkwater, nieuwe norm vanaf januari 2026".</p>
+
+  <h3 class="sub">De situatie in Vlaanderen</h3>
+  <p>Vlaams kraanwater voldoet aan deze Europese norm. De Vlaamse Milieumaatschappij (VMM) en de drinkwatermaatschappijen (Pidpa, De Watergroep, Farys en Vivaqua) rapporteren geen overschrijdingen van de wettelijke 100&nbsp;ng/l-grens.</p>
+  <p class="cite">Bron: VMM, FAQ drinkwater "Zitten er PFOS of PFAS in kraanwater?".</p>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="stat-num">100 ng/l</div>
+      <div class="stat-label">Wettelijke norm PFAS-20, waaraan Vlaams kraanwater voldoet</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4 ng/l</div>
+      <div class="stat-label">Vrijwillig streefdoel (EFSA-aanbeveling) van de watermaatschappijen tegen 2028, geen wettelijke norm</div>
+    </div>
+  </div>
+
+  <div class="callout coral">
+    <strong>Nuance.</strong> Een VRT NWS-analyse van drinkwaterstalen (17 april 2024) toonde dat 1 op de 6 stalen niet voldeed aan de strengste, niet-bindende PFAS-aanbevelingen. Dat betekent niet dat de wettelijke norm overschreden werd, wel dat er nog marge is tot het vrijwillige streefdoel van 2028.
+  </div>
+  <p class="cite">Bron: VRT NWS, "1 op de 6 Vlaamse drinkwaterstalen voldoet niet aan strengste PFAS-aanbevelingen", 17 april 2024.</p>
+
+  <div class="foot-page"><span>Aquelio · PFAS-dossier Vlaanderen</span><span>02</span></div>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page">
+  <p class="eyebrow">02 · De bodem, niet de kraan</p>
+  <h2 class="title">Het echte aandachtsgebied: 3M Zwijndrecht</h2>
+  <p class="lead">Vlaanderen is een erkend PFAS-aandachtsgebied door de historische vervuiling rond de 3M-fabriek in Zwijndrecht, een probleem van bodem en grondwater, niet van drinkwater.</p>
+
+  <p>3M produceerde er decennialang PFAS-houdende stoffen. Eind 2024 stopte het bedrijf alle PFAS-gerelateerde productie op de site.</p>
+  <p class="cite">Bron: 3M België, "Samenwerken PFAS"; OVAM, 3M-dossier Zwijndrecht.</p>
+
+  <p>OVAM leidt het bodem- en grondwaterdossier. Pompputten vangen momenteel al vervuild grondwater op en zuiveren dit; een gefaseerd bodemsaneringsproject met eigen perimeter is vastgesteld. De volledige start van de sanering van de site is gepland vanaf medio 2027.</p>
+  <p class="cite">Bron: OVAM, 3M-dossier Zwijndrecht.</p>
+
+  <p>Er loopt een massaclaim tegen 3M; de pleitzittingen vonden plaats in februari 2026, met een vonnis verwacht in de daaropvolgende weken.</p>
+  <p class="cite">Bron: OVAM; PFASkaartVlaanderen.be, "3M Zwijndrecht en PFAS: tijdlijn van vervuiling tot rechtszaak".</p>
+
+  <div class="foot-page"><span>Aquelio · PFAS-dossier Vlaanderen</span><span>03</span></div>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page">
+  <p class="eyebrow">03 · Voorzorgsmaatregelen</p>
+  <h2 class="title">Wat geldt binnen 10 km van de site</h2>
+  <p class="lead">De Vlaamse overheid legde "no-regret"-maatregelen op binnen een straal van 10&nbsp;km rond de 3M-fabriek, in de gemeenten Zwijndrecht, Beveren, Kruibeke en delen van Antwerpen.</p>
+
+  <table>
+    <tr><th>Domein</th><th>Voorzorgsmaatregel</th></tr>
+    <tr><td>Voeding</td><td>Beperkingen op consumptie van eigen groenten en eieren</td></tr>
+    <tr><td>Bodemcontact</td><td>Richtlijnen voor tuinieren en verblijf in open lucht</td></tr>
+    <tr><td>Water</td><td>Beperkt gebruik van grondwater</td></tr>
+    <tr><td>Afval</td><td>Specifieke verwerking van GFT-afval</td></tr>
+  </table>
+  <p class="cite">Bron: Gemeente Beveren-Kruibeke-Zwijndrecht, "PFAS-aanpak regio Zwijndrecht (3M-site)".</p>
+
+  <p>Saneringszones (rood, paars, oranje) bepalen de urgentie van ingrepen. De tuinsanering in de rode zone start medio 2027. Voor de bouw van een tijdelijke brug over de E34, nodig voor werfverkeer, ging de aanleg van start in november 2025.</p>
+  <p class="cite">Bron: Gemeente Beveren-Kruibeke-Zwijndrecht; Grondbank/Grondwijzer, "Sitebesluit PFAS 3M, Zwijndrecht".</p>
+
+  <div class="callout">
+    Woont u in de perimeter? Neem contact op met de preventieve gezondheidswerkers van uw gemeente voor persoonlijk advies, of raadpleeg de ombudsdienst voor vragen over sanering.
+  </div>
+
+  <div class="foot-page"><span>Aquelio · PFAS-dossier Vlaanderen</span><span>04</span></div>
+</section>
+
+<!-- PAGE 5 -->
+<section class="page">
+  <p class="eyebrow">04 · In de praktijk</p>
+  <h2 class="title">Wat dit betekent voor uw gezin</h2>
+
+  <ul>
+    <li>Woont u niet binnen de 10&nbsp;km-perimeter rond Zwijndrecht? Dan gaat het PFAS-verhaal in Vlaanderen in de eerste plaats over bodem en grondwater, niet over uw kraanwater, dat aan de Europese norm voldoet.</li>
+    <li>Woont u wel in de perimeter? Volg de officiële richtlijnen via uw gemeente en OVAM (voeding, grondwatergebruik, tuinieren).</li>
+    <li>Een onafhankelijk initiatief, PFASkaartVlaanderen.be, biedt een interactieve kaart om de situatie in uw gemeente te raadplegen, het is geen officiële overheidsbron, maar aggregeert publieke gegevens.</li>
+  </ul>
+  <p class="cite">Bron: PFASkaartVlaanderen.be.</p>
+
+  <h3 class="sub">Bronnen geciteerd in dit dossier</h3>
+  <ul class="sources-list">
+    <li>Vlaamse Milieumaatschappij (VMM), geoloket waterkwaliteit, PFAS-verkenner, FAQ drinkwater.</li>
+    <li>OVAM, 3M-dossier Zwijndrecht.</li>
+    <li>Gemeente Beveren-Kruibeke-Zwijndrecht, "PFAS-aanpak regio Zwijndrecht (3M-site)".</li>
+    <li>3M België, "Samenwerken PFAS".</li>
+    <li>VRT NWS, "1 op de 6 Vlaamse drinkwaterstalen voldoet niet aan strengste PFAS-aanbevelingen", 17 april 2024.</li>
+    <li>Drinkwatermaatschappijen, Pidpa, De Watergroep, Farys, Vivaqua.</li>
+    <li>Grondbank / Grondwijzer, "Sitebesluit PFAS 3M, Zwijndrecht goedgekeurd".</li>
+  </ul>
+
+  <div class="disclaimer">
+    Dit dossier is een onafhankelijk informatief document, samengesteld op basis van officiële publieke bronnen. Het vormt geen medisch advies en geen aankoopadvies. Aquelio is een anti-PFAS waterfilter, momenteel in ontwikkeling; er vindt geen definitieve verkoop plaats vóór validatie door een onafhankelijk laboratorium. Contact: contact@aquelio.eu
+  </div>
+
+  <div class="foot-page"><span>Aquelio · PFAS-dossier Vlaanderen</span><span>05</span></div>
+</section>
+
+</body>
+</html>
