@@ -21,6 +21,9 @@
         'ad_personalization': 'granted',
       });
     }
+    // Le Pixel Meta n'a pas d'équivalent du Consent Mode : il écoute cet
+    // événement et ne se charge qu'ici (voir tracking.js).
+    document.dispatchEvent(new CustomEvent("aquelio:consent"));
   }
 
   // Un visiteur déjà consentant lors d'une visite précédente : on redonne

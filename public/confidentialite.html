@@ -32,6 +32,9 @@
 <!-- 3) CMP (gestion du consentement) -->
 <script src="/cmp.js" data-cmp-id="CMP_ID_A_DEFINIR"></script>
 
+<!-- 3b) Pixel Meta (chargé après consentement) -->
+<script src="/tracking.js"></script>
+
 <!-- 4) Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -166,6 +169,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><strong>Outil d'emailing</strong> : <span class="legal-placeholder">[À COMPLÉTER : nom de l'outil d'emailing retenu pour la liste d'attente, non encore sélectionné à ce jour]</span></li>
       <li><strong>Mesure d'audience</strong> : Google Analytics, chargé via Google Tag Manager,
       uniquement après consentement donné dans la bannière cookies.</li>
+      <li><strong>Mesure publicitaire</strong> : Google Ireland Limited (Google Ads), pour mesurer
+      les demandes de dossier issues des annonces Google.</li>
+      <li><strong>Mesure publicitaire</strong> : Meta Platforms Ireland Limited (pixel Facebook /
+      Instagram), pour mesurer les demandes de dossier issues des publicités Meta. Ce pixel n'est
+      chargé qu'après consentement donné dans la bannière cookies : sans consentement, aucune
+      donnée n'est transmise à Meta.</li>
     </ul>
     <p>Certains de ces sous-traitants peuvent être établis hors de l'Union européenne (notamment
     aux États-Unis). Dans ce cas, le transfert est encadré par des garanties appropriées (clauses
@@ -209,6 +218,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     défaut, tout stockage analytique ou publicitaire est refusé (Google Consent Mode v2). Un bandeau
     de consentement te permet d'accepter ou de refuser ces traceurs non essentiels ; ton choix est
     mémorisé pour tes visites suivantes et peut être modifié à tout moment.</p>
+    <p>Deux traceurs publicitaires sont utilisés : la balise Google Ads, encadrée par le Consent
+    Mode v2 (aucun cookie publicitaire tant que le consentement n'est pas donné), et le pixel Meta,
+    qui n'est purement et simplement pas chargé tant que tu n'as pas accepté — refuser les cookies
+    signifie qu'aucune requête n'est envoyée vers Facebook ou Instagram.</p>
 
     <h2>10. Modifications de cette politique</h2>
     <p>Cette politique peut être mise à jour, notamment pour refléter l'évolution du produit, de ses
@@ -217,7 +230,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2>11. Contact</h2>
     <p>Pour toute question relative à cette politique de confidentialité : <a href="mailto:contact@aquelio.eu">contact@aquelio.eu</a></p>
 
-    <p class="legal-updated">Dernière mise à jour : 28 juillet 2026</p>
+    <p class="legal-updated">Dernière mise à jour : 13 août 2026</p>
   </div>
 </section>
 

@@ -69,6 +69,35 @@
 
   dl.push({ event: "dossier_ready", locale: LOCALE, dossier: key });
 
+  /* ── Conversion publicitaire ─────────────────────────────────────
+     Arriver ici, c'est avoir laissé son code postal et son email : le
+     lead est acquis. C'est donc ici, et nulle part ailleurs, que se
+     déclenche la conversion — Google Ads et Meta ne savent rien du
+     formulaire, seulement de la page qui le suit.
+
+     Un rechargement de la page ne doit pas compter un second lead :
+     c'est le même visiteur, la même demande. Le garde-fou tient sur la
+     session, ce qui laisse passer une nouvelle demande faite plus tard
+     depuis un autre onglet — cas assez rare pour ne pas s'en soucier. */
+  const GOOGLE_ADS_CONVERSION = "AW-18381937595/PK3-CP6NnOEcELu3mL1E";
+
+  let alreadyCounted = false;
+  try {
+    alreadyCounted = sessionStorage.getItem("aquelio_lead") === "1";
+    sessionStorage.setItem("aquelio_lead", "1");
+  } catch { /* navigation privée : au pire, un rechargement compte deux fois */ }
+
+  if (!alreadyCounted) {
+    // gtag() existe toujours : le shim est défini dans le <head>, avant
+    // même le chargement de gtag.js. Le Consent Mode fait le reste.
+    if (typeof window.gtag === "function") {
+      window.gtag('event', 'conversion', { send_to: GOOGLE_ADS_CONVERSION });
+    }
+    // Meta : chargé uniquement si le visiteur a accepté les cookies,
+    // sinon l'appel est mis en file et abandonné avec la page.
+    window.aquelioPixel?.('Lead', { content_name: key, content_category: "dossier_pfas" });
+  }
+
   if (link) {
     link.addEventListener("click", () => {
       dl.push({ event: "dossier_download", locale: LOCALE, dossier: key });
