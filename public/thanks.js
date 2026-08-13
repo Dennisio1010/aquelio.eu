@@ -94,22 +94,36 @@
     de: "AW-18245591187/e9mHCOTxouEcEJPBlvxD", // Allemagne
   };
 
-  let alreadyCounted = false;
-  try {
-    alreadyCounted = sessionStorage.getItem("aquelio_lead") === "1";
-    sessionStorage.setItem("aquelio_lead", "1");
-  } catch { /* navigation privée : au pire, un rechargement compte deux fois */ }
+  /* Un compteur par régie, et marqué seulement une fois l'événement
+     réellement parti. La version précédente marquait « compté » dès le
+     chargement de la page : un visiteur arrivé ici avant d'accepter les
+     cookies voyait son Lead mis en file d'attente, jamais transmis, et
+     plus jamais retenté de la session — un lead perdu en silence. */
+  const sent = (flag) => {
+    try { return sessionStorage.getItem(flag) === "1"; } catch { return false; }
+  };
+  const markSent = (flag) => {
+    try { sessionStorage.setItem(flag, "1"); } catch { /* navigation privée */ }
+  };
 
-  if (!alreadyCounted) {
-    // gtag() existe toujours : le shim est défini dans le <head>, avant
-    // même le chargement de gtag.js. Le Consent Mode fait le reste.
-    const sendTo = GOOGLE_ADS_CONVERSIONS[LOCALE];
-    if (sendTo && typeof window.gtag === "function") {
-      window.gtag('event', 'conversion', { send_to: sendTo });
-    }
-    // Meta : chargé uniquement si le visiteur a accepté les cookies,
-    // sinon l'appel est mis en file et abandonné avec la page.
-    window.aquelioPixel?.('Lead', { content_name: key, content_category: "dossier_pfas" });
+  // Google : gtag() existe toujours, le shim est défini dans le <head> avant
+  // même le chargement de gtag.js, et le Consent Mode gère le refus tout
+  // seul. L'appel part donc à coup sûr.
+  const sendTo = GOOGLE_ADS_CONVERSIONS[LOCALE];
+  if (sendTo && !sent("aquelio_lead_google") && typeof window.gtag === "function") {
+    window.gtag('event', 'conversion', { send_to: sendTo });
+    markSent("aquelio_lead_google");
+  }
+
+  // Meta : le pixel n'existe qu'après consentement. Si l'événement est mis
+  // en file sans jamais partir, rien n'est marqué et la visite suivante
+  // réessaiera.
+  if (!sent("aquelio_lead_meta")) {
+    window.aquelioPixel?.(
+      'Lead',
+      { content_name: key, content_category: "dossier_pfas" },
+      () => markSent("aquelio_lead_meta"),
+    );
   }
 
   if (link) {
