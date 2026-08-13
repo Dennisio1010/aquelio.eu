@@ -25,4 +25,14 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://aquelio.eu/nl/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://aquelio.eu/de/"/>
   </url>
+  <url>
+    <loc>https://aquelio.eu/pfas-eau-robinet-belgique.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aquelio.eu/nl/pfas-kraanwater-vlaanderen.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
