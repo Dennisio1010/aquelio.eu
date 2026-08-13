@@ -78,8 +78,21 @@
      Un rechargement de la page ne doit pas compter un second lead :
      c'est le même visiteur, la même demande. Le garde-fou tient sur la
      session, ce qui laisse passer une nouvelle demande faite plus tard
-     depuis un autre onglet — cas assez rare pour ne pas s'en soucier. */
-  const GOOGLE_ADS_CONVERSION = "AW-18381937595/PK3-CP6NnOEcELu3mL1E";
+     depuis un autre onglet — cas assez rare pour ne pas s'en soucier.
+
+     Deux comptes Google Ads pilotent le site, un par marché : la Belgique
+     (pages FR et NL) et l'Allemagne (pages DE), tenus séparés pour ne pas
+     mélanger budgets et données. La conversion part donc vers le compte du
+     marché de la page — l'envoyer au mauvais laisserait une campagne
+     aveugle et en gonflerait une autre.
+
+     Un marché sans action de conversion créée reste à null : ne rien
+     compter vaut mieux que compter dans le mauvais compte. */
+  const GOOGLE_ADS_CONVERSIONS = {
+    fr: "AW-18381937595/PK3-CP6NnOEcELu3mL1E", // Belgique
+    nl: "AW-18381937595/PK3-CP6NnOEcELu3mL1E", // Belgique (même compte)
+    de: null,                                  // Allemagne, compte AW-18245591187 — action de conversion à créer
+  };
 
   let alreadyCounted = false;
   try {
@@ -90,8 +103,9 @@
   if (!alreadyCounted) {
     // gtag() existe toujours : le shim est défini dans le <head>, avant
     // même le chargement de gtag.js. Le Consent Mode fait le reste.
-    if (typeof window.gtag === "function") {
-      window.gtag('event', 'conversion', { send_to: GOOGLE_ADS_CONVERSION });
+    const sendTo = GOOGLE_ADS_CONVERSIONS[LOCALE];
+    if (sendTo && typeof window.gtag === "function") {
+      window.gtag('event', 'conversion', { send_to: sendTo });
     }
     // Meta : chargé uniquement si le visiteur a accepté les cookies,
     // sinon l'appel est mis en file et abandonné avec la page.
