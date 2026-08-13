@@ -86,12 +86,12 @@
      marché de la page — l'envoyer au mauvais laisserait une campagne
      aveugle et en gonflerait une autre.
 
-     Un marché sans action de conversion créée reste à null : ne rien
+     Un marché sans action de conversion créée resterait à null : ne rien
      compter vaut mieux que compter dans le mauvais compte. */
   const GOOGLE_ADS_CONVERSIONS = {
     fr: "AW-18381937595/PK3-CP6NnOEcELu3mL1E", // Belgique
     nl: "AW-18381937595/PK3-CP6NnOEcELu3mL1E", // Belgique (même compte)
-    de: null,                                  // Allemagne, compte AW-18245591187 — action de conversion à créer
+    de: "AW-18245591187/e9mHCOTxouEcEJPBlvxD", // Allemagne
   };
 
   let alreadyCounted = false;
