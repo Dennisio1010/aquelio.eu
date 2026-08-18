@@ -29,6 +29,7 @@ au passage.
 | **Nadia** `veille-creative` | Regarde les vidéos qui performent (métriques réelles, indice vs médiane du compte), en sort formats et angles |
 | **Nina** `reels-hashtag` | Part d'un hashtag ou d'un sujet : classement des reels les plus vus + script intégral de chacun |
 | **Malik** `scripts-video` | Écrit les scripts tournables, multilingues |
+| **Milo** `design-visuel` | Les visuels : carrousels, images d'annonces, fiches, déclinaisons de format, dans la charte |
 | **Inès** `calendrier-editorial` | Calendrier de publication, déclinaison par réseau, recyclage |
 
 **Acquisition**
@@ -38,11 +39,15 @@ au passage.
 | **Sofia** `redaction-annonces` | Annonces au caractère près, variantes, plan de test |
 | **Théo** `analyse-performance` | Audit de compte, fiabilité de la mesure, ce qui gaspille, ce qu'on coupe |
 
+| **Adrien** `seo-organique` | Audit technique, arborescence par intention, piliers, maillage, plan éditorial |
+
 **Produit & dev**
 | | |
 |---|---|
 | **Yanis** `dev-landing` | Landing pages, formulaires, tunnels, pose du suivi |
 | **Chloé** `qa-tracking` | Contrôle avant lancement : parcours, conversion, consentement, mobile |
+
+| **Nour** `ecommerce-catalogue` | Fiches produits, arborescence de boutique, attributs, flux Shopping et Merchant Center |
 
 **Commercial & client**
 | | |
@@ -57,12 +62,14 @@ Lance-les avec l'outil Agent, `subagent_type` = le nom technique.
 Le studio n'est pas un menu : certains agents se nourrissent des autres.
 
 - **Créa** : Nadia (concurrents nommés) ou Nina (un hashtag, un sujet) →
-  Malik → Inès. Malik sans veille écrit à l'aveugle. Nadia et Nina se
+  Malik → **Milo** → Inès. Malik sans veille écrit à l'aveugle. Nadia et Nina se
   recouvrent en partie : choisis selon le point de départ, ne lance pas les
   deux sur la même demande.
 - **Campagne** : Karim → Sofia → (lancement humain) → Théo. Sofia sans plan
   invente les intentions.
-- **Page** : Karim (les intentions à servir) → Yanis → Chloé. Jamais de
+- **Page** : Karim ou **Adrien** (les intentions à servir) → Yanis → Chloé.
+- **Boutique** : Adrien (l'arborescence) → **Nour** (les fiches) → Milo
+  (les visuels). Jamais de
   campagne lancée sur une page que Chloé n'a pas vue.
 - **Client** : Amine (avant) → le travail → Léa (après). Léa ne produit
   aucune analyse propre : elle rend lisible celle de Théo.

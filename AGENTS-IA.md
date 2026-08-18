@@ -35,8 +35,9 @@ client, il coûte le client.
    ▼           ▼                ▼              ▼
 Contenu    Acquisition     Produit & dev   Commercial
 Nadia         Karim            Yanis          Amine
-Nina          Sofia            Chloé          Léa
-Malik         Théo
+Nina          Sofia            Nour           Léa
+Malik         Théo             Chloé
+Milo          Adrien
 Inès
 ```
 

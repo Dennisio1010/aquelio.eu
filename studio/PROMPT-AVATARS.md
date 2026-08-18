@@ -1,15 +1,15 @@
-# Prompts avatars — les douze employés
+# Prompts avatars — les quinze employés
 
-Douze portraits photoréalistes, cohérents entre eux, pour les cartes du
+Quinze portraits photoréalistes, cohérents entre eux, pour les cartes du
 studio.
 
-**Le vrai problème n'est pas le réalisme, c'est la cohérence.** Douze
+**Le vrai problème n'est pas le réalisme, c'est la cohérence.** Quinze
 portraits magnifiques mais éclairés différemment donnent une grille qui
-ressemble à une banque d'images. Douze portraits corrects avec le même
+ressemble à une banque d'images. Quinze portraits corrects avec le même
 objectif, la même lumière et le même fond donnent une équipe.
 
 D'où la méthode : **le bloc technique ci-dessous se colle mot pour mot dans
-les douze prompts**, sans jamais le reformuler. Seule la description de la
+les quinze prompts**, sans jamais le reformuler. Seule la description de la
 personne change.
 
 ---
@@ -40,7 +40,7 @@ beauté, pas de symétrie parfaite du visage.
 
 ---
 
-## Les douze
+## Les quinze
 
 Collez le bloc technique, puis la ligne de l'employé.
 
@@ -64,6 +64,11 @@ Homme d'une trentaine d'années, peau mate, cheveux courts, barbe courte
 entretenue, t-shirt noir uni sous une veste souple, expression concentrée et
 amicale.
 
+**Milo** — designer visuel
+Homme d'environ 30 ans, cheveux noirs mi-longs ramenés en arrière, peau
+olivâtre, col roulé fin anthracite, expression posée et observatrice, regard
+attentif au détail.
+
 **Inès** — responsable éditoriale
 Femme d'environ 35 ans, cheveux noirs lisses attachés, foulard fin autour du
 cou, chemise blanche, expression posée et organisée, sourire léger.
@@ -83,10 +88,20 @@ Homme d'environ 33 ans, cheveux bruns en bataille maîtrisée, lunettes rondes
 à monture fine, chemise à carreaux discrets, expression sérieuse et directe,
 sans sourire.
 
+**Adrien** — SEO organique
+Homme d'environ 36 ans, cheveux châtains courts avec une raie nette,
+lunettes fines, pull marine sur chemise blanche, expression méthodique et
+patiente, sourire discret.
+
 **Yanis** — intégrateur web
 Homme d'environ 27 ans, peau claire, cheveux noirs courts, petite boucle
 d'oreille, sweat à capuche gris anthracite, expression détendue et
 concentrée.
+
+**Nour** — catalogue e-commerce
+Femme d'environ 30 ans, peau mate, cheveux bruns ondulés attachés bas,
+petites boucles d'oreilles, chemisier vert sauge, expression précise et
+attentive, léger sourire.
 
 **Chloé** — contrôle qualité
 Femme d'environ 31 ans, cheveux roux coupés au carré, taches de rousseur
@@ -110,12 +125,12 @@ Tous ces outils rendent du photoréalisme convaincant. Ce qui compte, c'est
 la fonction de cohérence de chacun :
 
 - **Midjourney** — ajoutez `--ar 1:1 --style raw`. Générez le premier
-  portrait, puis passez son URL en `--sref` sur les onze autres : c'est ce
+  portrait, puis passez son URL en `--sref` sur les quatorze autres : c'est ce
   qui verrouille lumière et rendu d'un visage à l'autre.
 - **Flux 1.1 Pro** ou **Ideogram** — gardez la même graine (*seed*) entre les
-  douze, ou variez-la peu ; le bloc technique fait le reste.
+  quinze, ou variez-la peu ; le bloc technique fait le reste.
 - **ChatGPT / DALL·E** — le plus simple, mais la cohérence est plus fragile.
-  Générez les douze **dans une seule conversation**, à la suite, en
+  Générez les quinze **dans une seule conversation**, à la suite, en
   rappelant à chaque fois « même éclairage et même fond que les précédents ».
 
 Générez toujours **deux ou trois variantes par employé** et choisissez : le
@@ -125,11 +140,11 @@ oreilles se déforment, les regards partent de travers.
 ## Après génération
 
 1. **Recadrez à l'identique** — le haut du crâne à la même hauteur sur les
-   douze, les yeux au tiers supérieur. C'est ce qui saute aux yeux dans une
+   quinze, les yeux au tiers supérieur. C'est ce qui saute aux yeux dans une
    grille quand c'est raté.
 2. **Détourez le fond.** Vos cartes sont pastel : un portrait sur fond gris
    posé sur une carte lavande fait tache. Fond transparent, PNG.
-3. **Exportez en 512 × 512 WebP**, autour de 40 à 60 ko. Douze portraits en
+3. **Exportez en 512 × 512 WebP**, autour de 40 à 60 ko. Quinze portraits en
    pleine résolution ralentissent la page Studio pour rien.
 4. **Téléversez** dans le stockage Supabase du projet et renseignez le champ
    avatar de chaque employé.

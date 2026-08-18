@@ -47,6 +47,12 @@ Le calendrier tenable : quoi, où, quand, pourquoi. Décline un script en
 formats natifs, équilibre capter / convaincre / convertir, planifie le
 recyclage.
 
+**Milo** — designer visuel · `design-visuel`
+Passe du texte à l'image : carrousels, visuels d'annonces, images de fiches,
+déclinaisons de format, dans la charte du projet. Compose le texte
+par-dessus l'image plutôt que dans le prompt — les modèles déforment les
+lettres accentuées.
+
 ## Pôle Acquisition
 
 **Karim** — stratège acquisition · `recherche-mots-cles`
@@ -61,6 +67,12 @@ Audit de compte et vérité des chiffres. Vérifie d'abord que la mesure est
 juste, puis dit ce qui gaspille et ce qu'on coupe. Sans données, il réclame
 l'export exact plutôt que d'inventer.
 
+**Adrien** — SEO organique · `seo-organique`
+Le pendant de Karim : le payant s'arrête avec le budget, le référencement
+continue. Audit technique, arborescence par intention, piliers et
+satellites, maillage interne, plan éditorial. Ne promet jamais une position
+ni un volume de trafic.
+
 ## Pôle Produit & dev
 
 **Yanis** — intégrateur web · `dev-landing`
@@ -71,6 +83,12 @@ multilingue, dans le style du dépôt où il arrive.
 Passe derrière : le formulaire envoie-t-il vraiment, la conversion se
 déclenche-t-elle une seule fois, le refus de consentement est-il respecté,
 le mobile tient-il. Constate, ne corrige pas.
+
+**Nour** — responsable catalogue · `ecommerce-catalogue`
+Fiches produits, arborescence de boutique, attributs, flux Shopping et
+Merchant Center, sur WooCommerce comme ailleurs. N'écrit aucune
+caractéristique qui ne vienne d'une source citée — une fiche fausse se paie
+en retours et en litiges.
 
 ## Pôle Commercial & client
 
@@ -87,9 +105,10 @@ vocabulaire. Mauvaises nouvelles en premier, décision à la fin.
 ## Enchaînements
 
 ```
-Créa       Nadia ou Nina ──► Malik ──► Inès
-Campagne   Karim ──► Sofia ──► [lancement humain] ──► Théo
-Page       Karim ──► Yanis ──► Chloé
+Créa       Nadia ou Nina ──► Malik ──► Milo ──► Inès
+Campagne   Karim ──► Sofia ──► Milo ──► [lancement humain] ──► Théo
+Page       Karim ou Adrien ──► Yanis ──► Chloé
+Boutique   Adrien ──► Nour ──► Milo
 Client     Amine ──► [le travail] ──► Léa
 ```
 

@@ -447,7 +447,7 @@
 <div class="wrap">
 
   <header>
-    <p class="eyebrow">Douze employés IA · quatre pôles · un dépôt</p>
+    <p class="eyebrow">Quinze employés IA · quatre pôles · un dépôt</p>
     <h1>Studio Denis</h1>
     <p class="lede">Chaque employé est un fichier dans <code>.claude/agents/</code>. Ils vous suivent de projet en projet : la <strong>compétence</strong> vit dans l'agent, le <strong>contexte</strong> vit dans le brief du projet ouvert. Cliquez sur quelqu'un pour voir sa fiche de poste et la commande qui le lance.</p>
   </header>
@@ -563,6 +563,15 @@ const POLES = [
         cmd: "Lance scripts-video sur les 2 meilleurs formats de la dernière veille"
       },
       {
+        nom: "Milo", role: "Designer visuel", file: "design-visuel",
+        what: "Passe du texte à l'image : carrousels, visuels d'annonces, images de fiches produits, déclinaisons de format, dans la charte du projet.",
+        when: "Après un script ou un plan de campagne, quand il faut produire les visuels — ou quand une série existante manque de cohérence.",
+        out: "<code>marketing/visuels/</code> — les fichiers, plus un README avec les prompts utilisés mot pour mot, la charte appliquée et les déclinaisons fournies.",
+        edge: "Il compose le texte <strong>par-dessus</strong> l'image, jamais dans le prompt de génération : les modèles déforment les lettres accentuées. Et il ne génère jamais un produit qui existe vraiment — un visuel de fiche doit montrer le vrai produit, sinon c'est de la publicité mensongère.",
+        chain: "Se nourrit de <strong>Malik</strong> et <strong>Sofia</strong>. Alimente <strong>Inès</strong> et <strong>Nour</strong>.",
+        cmd: "Lance design-visuel : les visuels du dernier plan de campagne, formats 1:1 et 9:16"
+      },
+      {
         nom: "Inès", role: "Éditoriale", file: "calendrier-editorial",
         what: "Construit le calendrier de publication : quoi, où, quel jour, à quelle heure, et pourquoi. Décline un script en formats natifs par réseau.",
         when: "Planifier un mois de contenu, rattraper un calendrier en retard, savoir quoi publier cette semaine.",
@@ -611,6 +620,15 @@ const POLES = [
     color: "var(--pole-produit)",
     agents: [
       {
+        nom: "Adrien", role: "SEO organique", file: "seo-organique",
+        what: "Audit technique, arborescence par intention, pages piliers et satellites, maillage interne et plan éditorial.",
+        when: "Pour gagner du trafic qui ne s'arrête pas quand le budget publicitaire s'arrête, ou quand des pages se font concurrence entre elles.",
+        out: "<code>marketing/seo/</code> — ce qui bloque aujourd'hui, l'arborescence cible, la table des pages avec titles et priorités, le plan de maillage.",
+        edge: "Il traite le technique <strong>avant</strong> le contenu : écrire sur un site qui ne s'indexe pas, c'est peindre une porte murée. Et il ne promet jamais une position ni un volume de trafic — le SEO ne se promet pas.",
+        chain: "Le pendant de <strong>Karim</strong> côté organique. Alimente <strong>Yanis</strong> et <strong>Nour</strong>.",
+        cmd: "Lance seo-organique : audit du site et arborescence cible, marché FR"
+      },
+      {
         nom: "Yanis", role: "Intégrateur web", file: "dev-landing",
         what: "Construit et modifie les pages d'atterrissage, les formulaires, les tunnels de conversion et le balisage de suivi, directement dans le dépôt du projet.",
         when: "Créer une landing page, la décliner dans une nouvelle langue, corriger un formulaire, poser proprement un pixel.",
@@ -618,6 +636,15 @@ const POLES = [
         edge: "Il déclenche l'événement de conversion quand la conversion a réellement eu lieu — après la réponse du serveur, pas au clic — et il charge les scripts publicitaires seulement après consentement, selon le mécanisme déjà en place dans le dépôt.",
         chain: "Se nourrit de <strong>Karim</strong> (les intentions à servir), passe à <strong>Chloé</strong>.",
         cmd: "Lance dev-landing : décline la landing page en néerlandais"
+      },
+      {
+        nom: "Nour", role: "Catalogue e-commerce", file: "ecommerce-catalogue",
+        what: "Fiches produits, arborescence de boutique, attributs, pages de collection, flux Shopping et Merchant Center.",
+        when: "Créer ou réécrire des fiches, structurer un catalogue, corriger un flux produit refusé, préparer un lancement de gamme.",
+        out: "<code>marketing/catalogue/</code> — fiches avec tableau d'attributs et la source de chaque caractéristique, arborescence proposée, champs de flux à corriger.",
+        edge: "Elle n'écrit <strong>aucune caractéristique sans source citée</strong> — ni dimension, ni matière, ni certification. C'est la règle du poste : une fiche fausse se paie en retours, en litiges, parfois en sanction. Prix et stocks viennent du système ou restent vides.",
+        chain: "Se nourrit d'<strong>Adrien</strong> pour l'arborescence, passe à <strong>Milo</strong> pour les visuels.",
+        cmd: "Lance ecommerce-catalogue : réécris les fiches de cette catégorie, marché FR"
       },
       {
         nom: "Chloé", role: "Contrôle qualité", file: "qa-tracking",
@@ -657,9 +684,10 @@ const POLES = [
 ];
 
 const CHAINES = [
-  { label: "Créa", steps: ["Nadia ou Nina", "Malik", "Inès"], colors: ["contenu", "contenu", "contenu"] },
+  { label: "Créa", steps: ["Nadia ou Nina", "Malik", "Milo", "Inès"], colors: ["contenu", "contenu", "contenu", "contenu"] },
   { label: "Campagne", steps: ["Karim", "Sofia", "⟨vous lancez⟩", "Théo"], colors: ["acquisition", "acquisition", "human", "acquisition"] },
-  { label: "Page", steps: ["Karim", "Yanis", "Chloé"], colors: ["acquisition", "produit", "produit"] },
+  { label: "Page", steps: ["Karim ou Adrien", "Yanis", "Chloé"], colors: ["acquisition", "produit", "produit"] },
+  { label: "Boutique", steps: ["Adrien", "Nour", "Milo"], colors: ["acquisition", "produit", "contenu"] },
   { label: "Client", steps: ["Amine", "⟨le travail⟩", "Léa"], colors: ["commercial", "human", "commercial"] }
 ];
 

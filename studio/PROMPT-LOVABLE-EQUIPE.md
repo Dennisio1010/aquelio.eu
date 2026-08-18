@@ -60,6 +60,13 @@ Transforme une veille ou un angle en scripts tournables, plan par plan.
 - Donne-moi 5 hooks pour cette offre
 - Adapte ce script en néerlandais et en allemand
 
+**Milo** — Designer visuel — turquoise pâle
+Passe du texte à l'image : carrousels, visuels d'annonces, images de fiches,
+déclinaisons de format, dans la charte du projet.
+- Fais les visuels du dernier plan de campagne
+- Décline ce carrousel en 1:1 et en 9:16
+- Propose 3 directions visuelles pour cette offre
+
 **Inès** — Responsable éditoriale — menthe
 Construit le calendrier de publication et décline chaque script par réseau.
 - Planifie le mois prochain, 3 publications par semaine
@@ -86,6 +93,13 @@ Vérifie que la mesure est juste, puis dit ce qui rapporte et ce qu'on coupe.
 - Est-ce que mon suivi de conversion est fiable ?
 - Compare ce mois au mois dernier
 
+**Adrien** — SEO organique — rose thé
+Audit technique, arborescence par intention, pages piliers, maillage
+interne et plan éditorial.
+- Audite le site et donne-moi ce qui bloque
+- Quelles pages se font concurrence entre elles ?
+- Construis l'arborescence cible pour ce marché
+
 ### Pôle Produit & dev
 
 **Yanis** — Intégrateur web — vert tendre
@@ -100,6 +114,13 @@ Passe derrière une mise en ligne et dit ce qui casse avant le lancement.
 - Contrôle la page avant le lancement de la campagne
 - Le refus de consentement est-il bien respecté ?
 - Teste le parcours complet sur mobile
+
+**Nour** — Catalogue e-commerce — sable
+Fiches produits, arborescence de boutique, attributs, flux Shopping et
+Merchant Center.
+- Réécris les fiches de cette catégorie
+- Pourquoi ce flux produit est-il refusé ?
+- Structure le catalogue par intention d'achat
 
 ### Pôle Commercial & client
 
