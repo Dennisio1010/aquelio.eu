@@ -55,12 +55,15 @@ prochaine.
   remplis-le. **Laisse visibles les trous** : écris `À CONFIRMER` plutôt
   qu'une hypothèse déguisée en fait — les agents sont instruits de traiter
   un brief incertain comme incertain.
-- Crée `marketing/veille/`, `marketing/campagnes/`, `marketing/plans/`.
+- Crée l'arborescence de sortie : `marketing/veille/`, `marketing/scripts/`,
+  `marketing/calendrier/`, `marketing/campagnes/`, `marketing/annonces/`,
+  `marketing/rapports/`, `marketing/qa/`, `marketing/plans/`. Pour un mandat
+  client, ajoute `commercial/` et `clients/<client>/rapports/`.
 - Si le projet contient des données client, vérifie qu'elles sont exclues
   du versionnement (`.gitignore`) avant d'écrire quoi que ce soit.
 
 ## 4. Rendre compte
 
 Termine en affichant : le chemin du brief, les points restés `À CONFIRMER`,
-et la première action que tu recommandes (en général `/manager-marketing`
+et la première action que tu recommandes (en général `/studio`
 avec un objectif précis).

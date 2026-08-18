@@ -39,6 +39,9 @@ done
 cp "$SOURCE"/templates/*.md "$CIBLE/templates/"
 echo "modèle   → $CIBLE/templates/"
 
+cp "$SOURCE/STUDIO.md" "$CIBLE/STUDIO.md"
+echo "studio   → $CIBLE/STUDIO.md"
+
 echo
 echo "Pack installé dans $CIBLE"
-echo "Prochaine étape dans un projet : /brief-projet, puis /manager-marketing"
+echo "Prochaine étape dans un projet : /brief-projet, puis /studio"
