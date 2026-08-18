@@ -1,4 +1,8 @@
-# Prompt Lovable — v2
+# Prompt Lovable — version complète (nouveau projet)
+
+> **Projet déjà généré ?** N'utilisez pas ce fichier : passez à
+> [`PROMPT-LOVABLE-2.md`](PROMPT-LOVABLE-2.md), qui applique les mêmes
+> ajouts en cinq messages successifs sur l'application existante.
 
 Collez le bloc entre les deux traits dans le premier message d'un nouveau
 projet Lovable. Remplacez `Studio Denis` par le nom du produit.
