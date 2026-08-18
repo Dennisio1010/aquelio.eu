@@ -32,6 +32,12 @@ surperformance** (vues / médiane du compte) — le seul chiffre qui distingue
 une vraie réussite d'un gros compte ordinaire. Rend un tableau comparatif et
 des angles.
 
+**Nina** — chasseuse de reels · `reels-hashtag`
+Part d'un **hashtag ou d'un sujet**, pas de comptes nommés. Ramène les reels
+les plus vus de la période avec leurs chiffres, le script intégral de
+chacun, et deux réadaptations prêtes à tourner. Annonce le coût en crédits
+avant de partir.
+
 **Malik** — scénariste · `scripts-video`
 Transforme la veille en scripts tournables : cinq hooks, plan par plan,
 texte à l'écran, CTA, compte de mots, variantes de langue.
@@ -81,7 +87,7 @@ vocabulaire. Mauvaises nouvelles en premier, décision à la fin.
 ## Enchaînements
 
 ```
-Créa       Nadia ──► Malik ──► Inès
+Créa       Nadia ou Nina ──► Malik ──► Inès
 Campagne   Karim ──► Sofia ──► [lancement humain] ──► Théo
 Page       Karim ──► Yanis ──► Chloé
 Client     Amine ──► [le travail] ──► Léa

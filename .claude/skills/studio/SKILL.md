@@ -27,6 +27,7 @@ au passage.
 | | |
 |---|---|
 | **Nadia** `veille-creative` | Regarde les vidéos qui performent (métriques réelles, indice vs médiane du compte), en sort formats et angles |
+| **Nina** `reels-hashtag` | Part d'un hashtag ou d'un sujet : classement des reels les plus vus + script intégral de chacun |
 | **Malik** `scripts-video` | Écrit les scripts tournables, multilingues |
 | **Inès** `calendrier-editorial` | Calendrier de publication, déclinaison par réseau, recyclage |
 
@@ -55,7 +56,10 @@ Lance-les avec l'outil Agent, `subagent_type` = le nom technique.
 
 Le studio n'est pas un menu : certains agents se nourrissent des autres.
 
-- **Créa** : Nadia → Malik → Inès. Malik sans veille écrit à l'aveugle.
+- **Créa** : Nadia (concurrents nommés) ou Nina (un hashtag, un sujet) →
+  Malik → Inès. Malik sans veille écrit à l'aveugle. Nadia et Nina se
+  recouvrent en partie : choisis selon le point de départ, ne lance pas les
+  deux sur la même demande.
 - **Campagne** : Karim → Sofia → (lancement humain) → Théo. Sofia sans plan
   invente les intentions.
 - **Page** : Karim (les intentions à servir) → Yanis → Chloé. Jamais de

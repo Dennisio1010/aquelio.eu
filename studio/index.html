@@ -447,7 +447,7 @@
 <div class="wrap">
 
   <header>
-    <p class="eyebrow">Onze employés IA · quatre pôles · un dépôt</p>
+    <p class="eyebrow">Douze employés IA · quatre pôles · un dépôt</p>
     <h1>Studio Denis</h1>
     <p class="lede">Chaque employé est un fichier dans <code>.claude/agents/</code>. Ils vous suivent de projet en projet : la <strong>compétence</strong> vit dans l'agent, le <strong>contexte</strong> vit dans le brief du projet ouvert. Cliquez sur quelqu'un pour voir sa fiche de poste et la commande qui le lance.</p>
   </header>
@@ -480,7 +480,7 @@
       <p>ce qui s'attend vraiment, et ce qui part en parallèle</p>
     </div>
     <div class="flux" id="flux"></div>
-    <p style="margin:.9rem 0 0;font-size:.88rem;color:var(--ink-faint);max-width:var(--measure)">Nadia et Karim ne s'attendent pas : Victor les lance ensemble. En revanche Malik sans veille écrit à l'aveugle, et Léa sans rapport de Théo invente les chiffres.</p>
+    <p style="margin:.9rem 0 0;font-size:.88rem;color:var(--ink-faint);max-width:var(--measure)">Nadia et Karim ne s'attendent pas : Victor les lance ensemble. Nadia et Nina, elles, ne se lancent pas ensemble — Nadia part de comptes nommés, Nina d'un hashtag ou d'un sujet. En revanche Malik sans veille écrit à l'aveugle, et Léa sans rapport de Théo invente les chiffres.</p>
   </section>
 
   <footer>
@@ -543,6 +543,15 @@ const POLES = [
         edge: "Elle calcule l'<strong>indice de surperformance</strong> : les vues rapportées à la médiane des 8-15 dernières vidéos du même compte. 400 000 vues sur un compte à 15 000, c'est un signal (×27) ; sur un compte à 2 millions, c'est un échec (×0,2). Sans ce chiffre, un gros compte paraît toujours performant.",
         chain: "Alimente <strong>Malik</strong>. Part en parallèle de Karim.",
         cmd: "Lance veille-creative sur les concurrents du brief, marché FR"
+      },
+      {
+        nom: "Nina", role: "Chasseuse de reels", file: "reels-hashtag",
+        what: "Part d'un hashtag ou d'un sujet et ramène les reels les plus vus de la période, avec leurs chiffres réels et le script intégral de chacun.",
+        when: "« Qu'est-ce qui cartonne en ce moment sur ce sujet, et qu'est-ce qui s'y dit exactement ? » — quand on n'a pas de comptes précis en tête.",
+        out: "<code>marketing/veille/</code> — le classement (vues, engagement, indice, langue, chemin de découverte), le script intégral des meilleures, et deux réadaptations prêtes à tourner.",
+        edge: "Elle <strong>annonce le coût avant de partir</strong> : une transcription = 1 crédit TranscriptX, une vidéo regardée = 2. Dix scripts, dix crédits — elle vérifie la réserve, calcule, et réduit le nombre plutôt que de s'arrêter au milieu d'un rapport.",
+        chain: "Alterne avec <strong>Nadia</strong> selon le point de départ — un sujet pour Nina, des concurrents nommés pour Nadia. Alimente <strong>Malik</strong>.",
+        cmd: "Lance reels-hashtag sur #filtrationeau, marché FR, 10 vidéos, min 100k vues"
       },
       {
         nom: "Malik", role: "Scénariste", file: "scripts-video",
@@ -648,7 +657,7 @@ const POLES = [
 ];
 
 const CHAINES = [
-  { label: "Créa", steps: ["Nadia", "Malik", "Inès"], colors: ["contenu", "contenu", "contenu"] },
+  { label: "Créa", steps: ["Nadia ou Nina", "Malik", "Inès"], colors: ["contenu", "contenu", "contenu"] },
   { label: "Campagne", steps: ["Karim", "Sofia", "⟨vous lancez⟩", "Théo"], colors: ["acquisition", "acquisition", "human", "acquisition"] },
   { label: "Page", steps: ["Karim", "Yanis", "Chloé"], colors: ["acquisition", "produit", "produit"] },
   { label: "Client", steps: ["Amine", "⟨le travail⟩", "Léa"], colors: ["commercial", "human", "commercial"] }

@@ -35,8 +35,9 @@ client, il coûte le client.
    ▼           ▼                ▼              ▼
 Contenu    Acquisition     Produit & dev   Commercial
 Nadia         Karim            Yanis          Amine
-Malik         Sofia            Chloé          Léa
-Inès          Théo
+Nina          Sofia            Chloé          Léa
+Malik         Théo
+Inès
 ```
 
 Les prénoms sont des propositions — ce sont vos employés, renommez-les.
