@@ -1,0 +1,758 @@
+<title>Studio Denis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap">
+
+<style>
+  :root {
+    --ground: #f3f4f1;
+    --surface: #fbfbf9;
+    --surface-2: #eceee9;
+    --ink: #171b21;
+    --ink-soft: #5c6670;
+    --ink-faint: #8b939a;
+    --rule: #dcdfd8;
+    --rule-strong: #c3c7be;
+
+    --pole-contenu: #8a6a12;
+    --pole-acquisition: #2f5fa8;
+    --pole-produit: #257155;
+    --pole-commercial: #77477f;
+    --pole-direction: #262d36;
+
+    --focus: #2f5fa8;
+
+    --sp: clamp(1rem, 0.6rem + 1.2vw, 1.6rem);
+    --measure: 64ch;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #14171a;
+      --surface: #1c2025;
+      --surface-2: #23282e;
+      --ink: #e9ebe7;
+      --ink-soft: #99a2a9;
+      --ink-faint: #737c84;
+      --rule: #2c3238;
+      --rule-strong: #3d454d;
+
+      --pole-contenu: #cfa63f;
+      --pole-acquisition: #7fabe8;
+      --pole-produit: #59b894;
+      --pole-commercial: #bd91c5;
+      --pole-direction: #cdd3d9;
+
+      --focus: #7fabe8;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #14171a;
+    --surface: #1c2025;
+    --surface-2: #23282e;
+    --ink: #e9ebe7;
+    --ink-soft: #99a2a9;
+    --ink-faint: #737c84;
+    --rule: #2c3238;
+    --rule-strong: #3d454d;
+
+    --pole-contenu: #cfa63f;
+    --pole-acquisition: #7fabe8;
+    --pole-produit: #59b894;
+    --pole-commercial: #bd91c5;
+    --pole-direction: #cdd3d9;
+
+    --focus: #7fabe8;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: clamp(2rem, 1rem + 4vw, 4.5rem) var(--sp) 5rem;
+  }
+
+  /* ---------- header ---------- */
+
+  header { border-bottom: 1px solid var(--rule); padding-bottom: 2.2rem; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 0.9rem;
+  }
+
+  h1 {
+    font-family: Fraunces, Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(2.4rem, 1.4rem + 4vw, 4rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    margin: 0 0 0.9rem;
+  }
+
+  .lede {
+    max-width: var(--measure);
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin: 0;
+  }
+
+  .lede strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- sections ---------- */
+
+  section { margin-top: 3.4rem; }
+
+  .band-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    margin-bottom: 1.1rem;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .band-head h2 {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin: 0;
+    color: var(--accent, var(--ink));
+  }
+
+  .band-head p {
+    margin: 0;
+    font-size: 0.86rem;
+    color: var(--ink-faint);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 0.9rem;
+  }
+
+  /* ---------- cards ---------- */
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent, var(--rule-strong));
+    border-radius: 3px;
+    padding: 1rem 1rem 1.1rem;
+    cursor: pointer;
+    transition: border-color .12s ease, transform .12s ease, background .12s ease;
+  }
+
+  .card:hover { background: var(--surface-2); transform: translateY(-1px); }
+  .card:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+  .card .name {
+    font-family: Fraunces, Georgia, serif;
+    font-weight: 600;
+    font-size: 1.32rem;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  .card .role {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent, var(--ink-soft));
+  }
+
+  .card .what {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin-top: 0.25rem;
+  }
+
+  .card .handle {
+    margin-top: 0.7rem;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.74rem;
+    color: var(--ink-faint);
+    word-break: break-all;
+  }
+
+  /* Victor — point d'entrée */
+
+  .entry {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: clamp(1rem, 3vw, 2.4rem);
+    align-items: start;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--pole-direction);
+    border-radius: 3px;
+    padding: clamp(1.2rem, 2.5vw, 1.9rem);
+    margin-top: 2.6rem;
+  }
+
+  .entry h2 {
+    font-family: Fraunces, Georgia, serif;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1;
+    margin: 0.35rem 0 0.5rem;
+  }
+
+  .entry p { margin: 0 0 0.9rem; color: var(--ink-soft); font-size: 0.95rem; }
+
+  .entry-side {
+    border-left: 1px solid var(--rule);
+    padding-left: clamp(1rem, 2.5vw, 1.8rem);
+  }
+
+  @media (max-width: 720px) {
+    .entry { grid-template-columns: 1fr; }
+    .entry-side { border-left: 0; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 1.1rem; }
+  }
+
+  .entry-side h3 {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 0.6rem;
+  }
+
+  /* ---------- code + copy ---------- */
+
+  .cmd {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    background: var(--ground);
+    overflow: hidden;
+  }
+
+  .cmd code {
+    flex: 1;
+    min-width: 0;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.82rem;
+    padding: 0.6rem 0.7rem;
+    overflow-x: auto;
+    white-space: pre;
+    color: var(--ink);
+  }
+
+  .cmd button {
+    flex: none;
+    font: inherit;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 0;
+    border-left: 1px solid var(--rule-strong);
+    background: var(--surface-2);
+    color: var(--ink-soft);
+    padding: 0 0.85rem;
+    cursor: pointer;
+  }
+
+  .cmd button:hover { color: var(--ink); }
+  .cmd button:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+
+  /* ---------- flux ---------- */
+
+  .flux { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .chain {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.7rem 0.9rem;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+  }
+
+  .chain .label {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    width: 6.5rem;
+    flex: none;
+  }
+
+  .chip {
+    font-family: Fraunces, Georgia, serif;
+    font-size: 0.95rem;
+    padding: 0.1rem 0.55rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: 999px;
+    color: var(--accent, var(--ink));
+  }
+
+  .chip.human {
+    font-family: "Public Sans", sans-serif;
+    font-size: 0.8rem;
+    border-style: dashed;
+    color: var(--ink-soft);
+  }
+
+  .arrow { color: var(--ink-faint); font-size: 0.9rem; }
+
+  /* ---------- dialog ---------- */
+
+  dialog {
+    width: min(640px, calc(100vw - 2rem));
+    max-height: 85vh;
+    padding: 0;
+    border: 1px solid var(--rule-strong);
+    border-radius: 4px;
+    background: var(--surface);
+    color: var(--ink);
+    overflow: hidden;
+  }
+
+  dialog::backdrop { background: rgba(10, 12, 14, 0.55); }
+
+  .sheet { overflow-y: auto; max-height: 85vh; padding: 1.5rem clamp(1.1rem, 3vw, 1.9rem) 1.9rem; }
+
+  .sheet-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .sheet h3 {
+    font-family: Fraunces, Georgia, serif;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1;
+    margin: 0.3rem 0 0.35rem;
+  }
+
+  .sheet .role {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent, var(--ink-soft));
+  }
+
+  .close {
+    flex: none;
+    font: inherit;
+    font-size: 1.4rem;
+    line-height: 1;
+    background: none;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    color: var(--ink-soft);
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+  }
+
+  .close:hover { color: var(--ink); }
+  .close:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+  .sheet dl { margin: 0; display: grid; gap: 1.1rem; }
+
+  .sheet dt {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.3rem;
+  }
+
+  .sheet dd { margin: 0; font-size: 0.94rem; color: var(--ink-soft); }
+  .sheet dd strong { color: var(--ink); font-weight: 600; }
+  .sheet dd code {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.84rem;
+    color: var(--ink);
+    background: var(--surface-2);
+    padding: 0.05rem 0.3rem;
+    border-radius: 2px;
+  }
+  .sheet ul { margin: 0; padding-left: 1.1rem; }
+  .sheet li { margin-bottom: 0.25rem; }
+
+  /* ---------- footer ---------- */
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+
+  footer h3 {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 0.7rem;
+  }
+
+  footer p { margin: 0 0 0.8rem; font-size: 0.9rem; color: var(--ink-soft); max-width: 46ch; }
+  footer p strong { color: var(--ink); font-weight: 600; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">Onze employés IA · quatre pôles · un dépôt</p>
+    <h1>Studio Denis</h1>
+    <p class="lede">Chaque employé est un fichier dans <code>.claude/agents/</code>. Ils vous suivent de projet en projet : la <strong>compétence</strong> vit dans l'agent, le <strong>contexte</strong> vit dans le brief du projet ouvert. Cliquez sur quelqu'un pour voir sa fiche de poste et la commande qui le lance.</p>
+  </header>
+
+  <div class="entry" style="--accent: var(--pole-direction)">
+    <div>
+      <span class="role" style="font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)">Direction · point d'entrée</span>
+      <h2>Victor</h2>
+      <p>Dites-lui l'objectif en français courant. Il charge le brief du projet, choisit qui mobiliser, lance les agents indépendants en parallèle, confronte leurs retours et rend <strong>une seule décision</strong> — pas trois rapports agrafés.</p>
+      <div class="cmd">
+        <code>/studio lancement DE en septembre, budget 1500 €, objectif devis</code>
+        <button type="button" data-copy="/studio ">Copier</button>
+      </div>
+    </div>
+    <div class="entry-side">
+      <h3>Avant tout, une fois par projet</h3>
+      <p style="margin:0 0 .8rem;color:var(--ink-soft);font-size:.92rem">Le brief est le contexte que tous les agents lisent en premier : offre, marchés, conversion mesurée, concurrents, interdits. Sans lui, un agent s'arrête et le réclame — il ne devine jamais l'offre d'un client.</p>
+      <div class="cmd">
+        <code>/brief-projet</code>
+        <button type="button" data-copy="/brief-projet">Copier</button>
+      </div>
+    </div>
+  </div>
+
+  <section id="poles"></section>
+
+  <section>
+    <div class="band-head">
+      <h2>Les enchaînements</h2>
+      <p>ce qui s'attend vraiment, et ce qui part en parallèle</p>
+    </div>
+    <div class="flux" id="flux"></div>
+    <p style="margin:.9rem 0 0;font-size:.88rem;color:var(--ink-faint);max-width:var(--measure)">Nadia et Karim ne s'attendent pas : Victor les lance ensemble. En revanche Malik sans veille écrit à l'aveugle, et Léa sans rapport de Théo invente les chiffres.</p>
+  </section>
+
+  <footer>
+    <div>
+      <h3>Installer le studio</h3>
+      <p>Une fois, pour que l'équipe soit disponible dans <strong>tous</strong> vos projets.</p>
+      <div class="cmd">
+        <code>./.claude/install.sh</code>
+        <button type="button" data-copy="./.claude/install.sh">Copier</button>
+      </div>
+      <p style="margin-top:.8rem">Ou dans le dépôt d'un client, pour que le studio parte avec le mandat : <code style="font-family:'IBM Plex Mono',monospace;font-size:.82rem">./.claude/install.sh /chemin/du/projet</code></p>
+    </div>
+    <div>
+      <h3>Ce que cette page n'est pas</h3>
+      <p>Un <strong>annuaire</strong>, pas un pilote. Elle ne lance rien elle-même et n'affiche aucun compteur : les commandes se tapent dans Claude Code, et les seuls chiffres qui comptent sont ceux que les agents vont chercher dans les sources, avec leur date.</p>
+      <p>Un tableau de bord qui exécuterait vraiment demanderait un serveur, une clé API et une facturation à la tâche. C'est faisable — c'est un autre chantier.</p>
+    </div>
+    <div>
+      <h3>Les règles, pour tout le monde</h3>
+      <p><strong>Personne ne publie, personne ne dépense.</strong> Le studio prépare ; vous validez et exécutez.</p>
+      <p><strong>Aucun chiffre inventé.</strong> Chaque nombre porte sa source et sa date ; le reste sort marqué « à valider en interface ».</p>
+      <p><strong>Cloisonnement des mandats.</strong> Les données d'un client ne quittent pas son dépôt. Ce qui voyage, c'est la méthode.</p>
+    </div>
+  </footer>
+
+</div>
+
+<dialog id="sheet">
+  <div class="sheet">
+    <div class="sheet-top">
+      <div>
+        <span class="role" id="s-role"></span>
+        <h3 id="s-name"></h3>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:.76rem;color:var(--ink-faint)" id="s-file"></span>
+      </div>
+      <button type="button" class="close" id="s-close" aria-label="Fermer">×</button>
+    </div>
+    <dl>
+      <div><dt>Ce qu'il fait</dt><dd id="s-what"></dd></div>
+      <div><dt>Quand l'appeler</dt><dd id="s-when"></dd></div>
+      <div><dt>Ce qu'il rend</dt><dd id="s-out"></dd></div>
+      <div><dt>Ce qui le distingue</dt><dd id="s-edge"></dd></div>
+      <div><dt>Sa chaîne</dt><dd id="s-chain"></dd></div>
+      <div><dt>Le lancer</dt><dd><div class="cmd"><code id="s-cmd"></code><button type="button" id="s-copy">Copier</button></div></dd></div>
+    </dl>
+  </div>
+</dialog>
+
+<script>
+const POLES = [
+  {
+    id: "contenu", titre: "Contenu & créa", note: "trouver ce qui marche, l'écrire, le publier au rythme",
+    color: "var(--pole-contenu)",
+    agents: [
+      {
+        nom: "Nadia", role: "Veille tendances", file: "veille-creative",
+        what: "Regarde réellement les vidéos qui performent — images horodatées, transcription, vues, likes, commentaires — sur TikTok, Instagram, YouTube et Facebook, plus les publicités actives des concurrents.",
+        when: "Chercher des angles, décortiquer un concurrent, préparer les créas d'une campagne.",
+        out: "<code>marketing/veille/</code> — un tableau comparatif (vues, likes, commentaires, engagement, indice, marché) et le top 5 des formats à répliquer.",
+        edge: "Elle calcule l'<strong>indice de surperformance</strong> : les vues rapportées à la médiane des 8-15 dernières vidéos du même compte. 400 000 vues sur un compte à 15 000, c'est un signal (×27) ; sur un compte à 2 millions, c'est un échec (×0,2). Sans ce chiffre, un gros compte paraît toujours performant.",
+        chain: "Alimente <strong>Malik</strong>. Part en parallèle de Karim.",
+        cmd: "Lance veille-creative sur les concurrents du brief, marché FR"
+      },
+      {
+        nom: "Malik", role: "Scénariste", file: "scripts-video",
+        what: "Transforme une veille ou un angle en scripts tournables : cinq hooks, plan par plan avec timecodes, texte à l'écran, CTA, liste de tournage.",
+        when: "Écrire ou réécrire des scripts Reels, TikTok, Shorts et créas publicitaires.",
+        out: "<code>marketing/scripts/</code> — un script par bloc, avec compte de mots, durée visée et variantes de langue.",
+        edge: "Il écrit pour l'oreille et chronomètre : ~2,5 mots par seconde en français, donc 75 mots pour 30 secondes. Et il adapte par langue au lieu de traduire — un hook traduit littéralement perd son rythme.",
+        chain: "Se nourrit de <strong>Nadia</strong>, alimente <strong>Inès</strong>.",
+        cmd: "Lance scripts-video sur les 2 meilleurs formats de la dernière veille"
+      },
+      {
+        nom: "Inès", role: "Éditoriale", file: "calendrier-editorial",
+        what: "Construit le calendrier de publication : quoi, où, quel jour, à quelle heure, et pourquoi. Décline un script en formats natifs par réseau.",
+        when: "Planifier un mois de contenu, rattraper un calendrier en retard, savoir quoi publier cette semaine.",
+        out: "<code>marketing/calendrier/</code> — le tableau daté, la charge de production, ce qu'on recycle et quand.",
+        edge: "Elle part des moyens réels, pas de l'idéal : trois posts par semaine tenus valent mieux que quatorze prévus. Et elle équilibre capter / convaincre / convertir plutôt que d'empiler des posts de vente.",
+        chain: "Se nourrit de <strong>Malik</strong>. Ne programme rien sans validation.",
+        cmd: "Lance calendrier-editorial pour le mois prochain, 3 publications par semaine"
+      }
+    ]
+  },
+  {
+    id: "acquisition", titre: "Acquisition payante", note: "structurer, rédiger, puis dire ce qu'on coupe",
+    color: "var(--pole-acquisition)",
+    agents: [
+      {
+        nom: "Karim", role: "Stratège acquisition", file: "recherche-mots-cles",
+        what: "Mots-clés rangés par intention, requêtes négatives argumentées, structure de compte, audiences Meta et TikTok, correspondance mot-clé → page réelle.",
+        when: "Avant de créer ou d'élargir une campagne, ou pour nettoyer le gaspillage d'un compte existant.",
+        out: "<code>marketing/campagnes/</code> — la structure complète, les négatifs justifiés et le brief de rédaction pour Sofia.",
+        edge: "Il part de la conversion réellement mesurée, pas du volume : un lead gratuit et un abonnement à 400 €/mois n'appellent ni les mêmes intentions ni les mêmes correspondances. Et il n'invente aucun volume de recherche — tout chiffre sort marqué « à valider en interface ».",
+        chain: "Alimente <strong>Sofia</strong> et <strong>Yanis</strong>. Part en parallèle de Nadia.",
+        cmd: "Lance recherche-mots-cles sur le marché DE, objectif du brief"
+      },
+      {
+        nom: "Sofia", role: "Copywriter pub", file: "redaction-annonces",
+        what: "Écrit les annonces dans les limites exactes de chaque plateforme, par langue, avec le plan de test qui va avec.",
+        when: "Après un plan de campagne, pour réécrire des annonces qui sous-performent, ou décliner une offre dans une nouvelle langue.",
+        out: "<code>marketing/annonces/</code> — titres et descriptions avec leur compte de caractères, extensions, plan de test, statut conformité ligne par ligne.",
+        edge: "Elle compte les caractères, elle ne les estime pas — 30 pour un titre Google, 90 pour une description — et elle vérifie que la promesse de l'annonce se retrouve mot pour mot sur la page de destination. C'est exactement ce que mesurent le Quality Score et la cohérence exigée par Meta.",
+        chain: "Se nourrit de <strong>Karim</strong>. Ne met aucune annonce en ligne.",
+        cmd: "Lance redaction-annonces sur le dernier plan de campagne, FR et DE"
+      },
+      {
+        nom: "Théo", role: "Analyste perf", file: "analyse-performance",
+        what: "Lit les données réelles — exports, tableaux de bord, code de suivi du site — pour dire ce qui rapporte, ce qui gaspille et ce qu'il faut couper.",
+        when: "Point de performance, audit d'un compte client, ou avant de décider d'augmenter un budget.",
+        out: "<code>marketing/rapports/</code> — le verdict, la fiabilité de la mesure, le tableau par niveau et le gaspillage chiffré.",
+        edge: "Il vérifie la mesure <em>avant</em> de commenter les résultats : la moitié des « mauvaises campagnes » sont des conversions comptées deux fois ou un pixel qui part au chargement de page. Et sans données, il ne produit pas de rapport — il dit quel export demander, où et sur quelle période.",
+        chain: "Après le lancement. Alimente <strong>Léa</strong>.",
+        cmd: "Lance analyse-performance sur l'export Google Ads des 30 derniers jours"
+      }
+    ]
+  },
+  {
+    id: "produit", titre: "Produit & dev", note: "construire la page, puis vérifier qu'elle tient",
+    color: "var(--pole-produit)",
+    agents: [
+      {
+        nom: "Yanis", role: "Intégrateur web", file: "dev-landing",
+        what: "Construit et modifie les pages d'atterrissage, les formulaires, les tunnels de conversion et le balisage de suivi, directement dans le dépôt du projet.",
+        when: "Créer une landing page, la décliner dans une nouvelle langue, corriger un formulaire, poser proprement un pixel.",
+        out: "Le code dans le dépôt, plus un compte rendu : fichiers touchés, comment lancer et tester, ce qui reste à faire côté humain.",
+        edge: "Il déclenche l'événement de conversion quand la conversion a réellement eu lieu — après la réponse du serveur, pas au clic — et il charge les scripts publicitaires seulement après consentement, selon le mécanisme déjà en place dans le dépôt.",
+        chain: "Se nourrit de <strong>Karim</strong> (les intentions à servir), passe à <strong>Chloé</strong>.",
+        cmd: "Lance dev-landing : décline la landing page en néerlandais"
+      },
+      {
+        nom: "Chloé", role: "Contrôle qualité", file: "qa-tracking",
+        what: "Passe derrière une mise en ligne : le formulaire envoie-t-il vraiment, la conversion part-elle une seule fois, le refus de consentement est-il respecté, le mobile tient-il.",
+        when: "Avant un lancement de campagne, ou après toute modification du site.",
+        out: "<code>marketing/qa/</code> — le verdict, les anomalies classées par gravité avec la façon de les reproduire, et ce qu'elle n'a pas pu vérifier.",
+        edge: "Elle teste le <strong>refus</strong> de consentement, pas seulement l'acceptation — c'est le cas que personne ne teste et celui qui fait refuser les campagnes. Elle constate et ne corrige pas : les corrections reviennent à Yanis.",
+        chain: "Après <strong>Yanis</strong>. Rien ne se lance sur une page qu'elle n'a pas vue.",
+        cmd: "Lance qa-tracking avant le lancement de la campagne"
+      }
+    ]
+  },
+  {
+    id: "commercial", titre: "Commercial & client", note: "aller chercher le mandat, puis en rendre compte",
+    color: "var(--pole-commercial)",
+    agents: [
+      {
+        nom: "Amine", role: "Développement", file: "prospection",
+        what: "Qualifie un prospect, prépare l'approche personnalisée, structure et chiffre la proposition, planifie les relances.",
+        when: "Préparer une approche client, répondre à une demande entrante, rédiger une proposition commerciale.",
+        out: "<code>commercial/</code> — fiche de qualification avec ce qui a été observé (URL et date), message d'approche, proposition chiffrée, objections anticipées.",
+        edge: "Il chiffre en <strong>livrables</strong>, pas en heures, et écrit explicitement le hors-champ — ce qui évite la moitié des conflits. Et il qualifie honnêtement : si le prospect n'a ni le problème ni le budget, il le dit au lieu de produire un message de plus.",
+        chain: "Avant le mandat. Passe le relais à l'équipe, puis à <strong>Léa</strong>.",
+        cmd: "Lance prospection sur ce prospect : <url du site>"
+      },
+      {
+        nom: "Léa", role: "Reporting client", file: "reporting-client",
+        what: "Transforme le travail réalisé et les chiffres en compte rendu lisible par quelqu'un qui n'a ni le temps ni le vocabulaire technique.",
+        when: "Rapport mensuel, bilan de campagne, point d'étape avec un client.",
+        out: "<code>clients/&lt;client&gt;/rapports/</code> — une page : objectif, résultat, tendance, décision proposée. Le détail en annexe.",
+        edge: "Elle rapporte à l'objectif convenu, pas à la métrique la plus flatteuse disponible, et elle met les mauvaises nouvelles en premier avec ce qu'on fait pour les traiter. Elle ne produit aucune analyse propre : elle rend lisible celle de Théo.",
+        chain: "Se nourrit de <strong>Théo</strong> et des livrables de la période.",
+        cmd: "Lance reporting-client pour le rapport mensuel"
+      }
+    ]
+  }
+];
+
+const CHAINES = [
+  { label: "Créa", steps: ["Nadia", "Malik", "Inès"], colors: ["contenu", "contenu", "contenu"] },
+  { label: "Campagne", steps: ["Karim", "Sofia", "⟨vous lancez⟩", "Théo"], colors: ["acquisition", "acquisition", "human", "acquisition"] },
+  { label: "Page", steps: ["Karim", "Yanis", "Chloé"], colors: ["acquisition", "produit", "produit"] },
+  { label: "Client", steps: ["Amine", "⟨le travail⟩", "Léa"], colors: ["commercial", "human", "commercial"] }
+];
+
+const poleColor = id => `var(--pole-${id})`;
+const esc = s => s.replace(/&(?![a-z]+;)/g, "&amp;").replace(/</g, "&lt;");
+
+// --- rendu des pôles -------------------------------------------------------
+const host = document.getElementById("poles");
+const index = {};
+
+POLES.forEach(pole => {
+  const sec = document.createElement("section");
+  sec.style.setProperty("--accent", pole.color);
+  const head = document.createElement("div");
+  head.className = "band-head";
+  head.innerHTML = `<h2>${pole.titre}</h2><p>${pole.note}</p>`;
+  sec.appendChild(head);
+
+  const grid = document.createElement("div");
+  grid.className = "grid";
+
+  pole.agents.forEach(a => {
+    index[a.nom] = { ...a, pole: pole.id, color: pole.color };
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "card";
+    b.style.setProperty("--accent", pole.color);
+    b.setAttribute("aria-haspopup", "dialog");
+    b.innerHTML =
+      `<span class="role">${a.role}</span>` +
+      `<span class="name">${a.nom}</span>` +
+      `<span class="what">${a.what.split(/[.:]/)[0]}.</span>` +
+      `<span class="handle">${a.file}</span>`;
+    b.addEventListener("click", () => open(a.nom));
+    grid.appendChild(b);
+  });
+
+  sec.appendChild(grid);
+  host.appendChild(sec);
+});
+
+// --- rendu des chaînes -----------------------------------------------------
+const flux = document.getElementById("flux");
+CHAINES.forEach(c => {
+  const row = document.createElement("div");
+  row.className = "chain";
+  let html = `<span class="label">${c.label}</span>`;
+  c.steps.forEach((s, i) => {
+    if (i) html += `<span class="arrow" aria-hidden="true">→</span>`;
+    const human = c.colors[i] === "human";
+    html += human
+      ? `<span class="chip human">${esc(s)}</span>`
+      : `<span class="chip" style="--accent:${poleColor(c.colors[i])}">${esc(s)}</span>`;
+  });
+  row.innerHTML = html;
+  flux.appendChild(row);
+});
+
+// --- fiche -----------------------------------------------------------------
+const dlg = document.getElementById("sheet");
+let lastFocus = null;
+
+function open(nom) {
+  const a = index[nom];
+  lastFocus = document.activeElement;
+  dlg.style.setProperty("--accent", a.color);
+  document.getElementById("s-role").textContent = a.role;
+  document.getElementById("s-name").textContent = a.nom;
+  document.getElementById("s-file").textContent = `.claude/agents/${a.file}.md`;
+  document.getElementById("s-what").innerHTML = a.what;
+  document.getElementById("s-when").innerHTML = a.when;
+  document.getElementById("s-out").innerHTML = a.out;
+  document.getElementById("s-edge").innerHTML = a.edge;
+  document.getElementById("s-chain").innerHTML = a.chain;
+  document.getElementById("s-cmd").textContent = a.cmd;
+  dlg.showModal();
+  document.getElementById("s-close").focus();
+}
+
+document.getElementById("s-close").addEventListener("click", () => dlg.close());
+dlg.addEventListener("close", () => lastFocus && lastFocus.focus());
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+
+// --- copie -----------------------------------------------------------------
+function copier(btn, texte) {
+  const done = ok => {
+    const avant = btn.textContent;
+    btn.textContent = ok ? "Copié" : "Sélectionnez";
+    setTimeout(() => { btn.textContent = avant; }, 1600);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(texte).then(() => done(true), () => done(false));
+  } else {
+    done(false);
+  }
+}
+
+document.querySelectorAll("[data-copy]").forEach(b => {
+  b.addEventListener("click", () => copier(b, b.dataset.copy));
+});
+
+document.getElementById("s-copy").addEventListener("click", e => {
+  copier(e.currentTarget, document.getElementById("s-cmd").textContent);
+});
+</script>
