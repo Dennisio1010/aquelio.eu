@@ -10,6 +10,11 @@ Le message 1 commence par un audit : Lovable doit dire ce qui existe déjà
 avant de toucher quoi que ce soit. C'est ce qui évite qu'il recrée une
 seconde table `agents` à côté de la première.
 
+**Entre le message 1 et le message 2**, envoyez
+[`PROMPT-LOVABLE-EQUIPE.md`](PROMPT-LOVABLE-EQUIPE.md) : il remplace les
+trois agents de démarrage par l'équipe complète et corrige le rôle de chef
+d'orchestre.
+
 ---
 
 ## Message 1 — Audit, puis refonte visuelle
