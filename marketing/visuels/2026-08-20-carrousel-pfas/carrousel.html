@@ -1,0 +1,162 @@
+<meta charset="utf-8">
+<title>Carrousel PFAS — Aquelio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Instrument+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#0f2e2e;
+    --corail:#ff6b5b;
+    --blanc:#f5f3ec;
+    --teal-clair:#1c4442;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:#2a2a28;
+    font-family:'Instrument Sans',system-ui,sans-serif;
+    padding:48px 24px;
+    display:flex;flex-direction:column;align-items:center;gap:40px;
+  }
+  .aide{
+    color:#f5f3ec;font-family:'IBM Plex Mono',monospace;font-size:13px;
+    max-width:1080px;line-height:1.7;opacity:.75;text-align:center;
+  }
+  .slide{
+    width:1080px;height:1350px;flex:none;
+    background:var(--teal);color:var(--blanc);
+    padding:96px 88px;
+    display:flex;flex-direction:column;
+    position:relative;overflow:hidden;
+  }
+  .slide.clair{background:var(--blanc);color:var(--teal)}
+  .num{
+    font-family:'IBM Plex Mono',monospace;font-size:26px;
+    letter-spacing:.14em;opacity:.5;
+  }
+  .corps{flex:1;display:flex;flex-direction:column;justify-content:center}
+  h1{
+    font-family:'Archivo',sans-serif;font-weight:800;
+    font-size:112px;line-height:1.02;letter-spacing:-.025em;
+  }
+  h2{
+    font-family:'Archivo',sans-serif;font-weight:800;
+    font-size:82px;line-height:1.08;letter-spacing:-.02em;
+  }
+  p{font-size:40px;line-height:1.45;margin-top:40px;max-width:19ch}
+  p.large{max-width:24ch;font-size:36px}
+  .corail{color:var(--corail)}
+  .chiffre{
+    font-family:'Archivo',sans-serif;font-weight:800;
+    font-size:230px;line-height:.9;color:var(--corail);
+    letter-spacing:-.04em;
+  }
+  .unite{
+    font-family:'IBM Plex Mono',monospace;font-size:34px;
+    letter-spacing:.06em;margin-top:20px;opacity:.7;
+  }
+  .pied{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    font-family:'IBM Plex Mono',monospace;font-size:24px;
+    letter-spacing:.05em;opacity:.55;
+  }
+  .marque{font-family:'Archivo',sans-serif;font-weight:600;opacity:1;font-size:30px;letter-spacing:-.01em}
+  .filet{height:6px;background:var(--corail);width:120px;margin:52px 0 0}
+  .liste{margin-top:56px;display:flex;flex-direction:column;gap:30px}
+  .liste div{
+    font-size:38px;line-height:1.3;padding-left:34px;
+    border-left:5px solid var(--corail);
+  }
+  .cta{
+    background:var(--corail);color:var(--teal);
+    font-family:'Archivo',sans-serif;font-weight:800;font-size:46px;
+    padding:36px 52px;margin-top:56px;display:inline-block;
+    align-self:flex-start;letter-spacing:-.01em;
+  }
+  .mention{
+    font-family:'IBM Plex Mono',monospace;font-size:22px;
+    line-height:1.6;opacity:.6;margin-top:44px;max-width:34ch;
+  }
+</style>
+
+<div class="aide">
+  Carrousel Aquelio — 7 vignettes 1080 × 1350 (4:5).<br>
+  Export : ouvrir cette page dans le navigateur, capturer chaque bloc, ou
+  imprimer en PDF puis découper. Le texte est modifiable directement dans ce fichier.
+</div>
+
+<!-- 01 — accroche -->
+<div class="slide">
+  <div class="num">01 / 07</div>
+  <div class="corps">
+    <h1>Le 12&nbsp;janvier,<br>une <span class="corail">limite légale</span><br>est entrée<br>en vigueur.</h1>
+    <div class="filet"></div>
+    <p>Sur votre eau du robinet. Vous n'en avez pas entendu parler.</p>
+  </div>
+  <div class="pied"><span class="marque">Aquelio</span><span>aquelio.eu</span></div>
+</div>
+
+<!-- 02 — le chiffre -->
+<div class="slide clair">
+  <div class="num">02 / 07</div>
+  <div class="corps">
+    <div class="chiffre">100</div>
+    <div class="unite">NANOGRAMMES PAR LITRE</div>
+    <p>Le maximum autorisé, pour vingt substances PFAS additionnées.</p>
+  </div>
+  <div class="pied"><span class="marque">Aquelio</span><span>Directive UE 2020/2184</span></div>
+</div>
+
+<!-- 03 — ce que c'est -->
+<div class="slide">
+  <div class="num">03 / 07</div>
+  <div class="corps">
+    <h2>Les PFAS ne<br>se dégradent<br><span class="corail">pas.</span></h2>
+    <p class="large">C'est pour ça qu'on les appelle les polluants éternels. La loi ne les interdit pas : elle plafonne leur quantité.</p>
+  </div>
+  <div class="pied"><span class="marque">Aquelio</span><span>aquelio.eu</span></div>
+</div>
+
+<!-- 04 — conforme ≠ zéro -->
+<div class="slide clair">
+  <div class="num">04 / 07</div>
+  <div class="corps">
+    <h2>Conforme,<br>ce n'est pas<br><span class="corail">zéro.</span></h2>
+    <p class="large">Conforme veut dire : sous la limite. C'est une information utile, ce n'est pas la même chose qu'une absence.</p>
+  </div>
+  <div class="pied"><span class="marque">Aquelio</span><span>aquelio.eu</span></div>
+</div>
+
+<!-- 05 — 2028 -->
+<div class="slide">
+  <div class="num">05 / 07</div>
+  <div class="corps">
+    <h2>Et en <span class="corail">2028</span>,<br>ça se resserre.</h2>
+    <div class="liste">
+      <div>Un second seuil, plus strict</div>
+      <div>Sur quatre substances précises</div>
+      <div>Toutes les régions ne sont pas logées à la même enseigne</div>
+    </div>
+  </div>
+  <div class="pied"><span class="marque">Aquelio</span><span>À confirmer sur le texte officiel</span></div>
+</div>
+
+<!-- 06 — ce qu'on a fait -->
+<div class="slide clair">
+  <div class="num">06 / 07</div>
+  <div class="corps">
+    <h2>On a compilé<br>les données<br><span class="corail">publiques.</span></h2>
+    <p class="large">Par région. Sourcées, datées, six pages. Ce que disent les rapports officiels sur votre zone — rien d'autre.</p>
+  </div>
+  <div class="pied"><span class="marque">Aquelio</span><span>SPW · VMM · OVAM · ISSeP</span></div>
+</div>
+
+<!-- 07 — action -->
+<div class="slide">
+  <div class="num">07 / 07</div>
+  <div class="corps">
+    <h2>Votre code<br>postal, et<br>c'est <span class="corail">à vous.</span></h2>
+    <div class="cta">aquelio.eu</div>
+    <div class="mention">Gratuit. Aucune vente ferme n'est effectuée avant validation en laboratoire indépendant.</div>
+  </div>
+  <div class="pied"><span class="marque">Aquelio</span><span>Petite. Efficace. Vérifiée.</span></div>
+</div>
