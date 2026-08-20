@@ -37,18 +37,27 @@
     window.fbq('track', 'PageView');
 
     while (pending.length) {
-      const [name, params] = pending.shift();
+      const [name, params, onSent] = pending.shift();
       window.fbq('track', name, params);
+      onSent?.();
     }
   }
 
   /* Événements métier envoyés à Meta depuis le reste du site — aujourd'hui
      le Lead de la page de remerciement (voir thanks.js). Toujours sûr à
      appeler : sans consentement, l'appel est mis en file d'attente et
-     abandonné avec la page. */
-  window.aquelioPixel = (name, params) => {
-    if (pixelLoaded) window.fbq('track', name, params);
-    else pending.push([name, params]);
+     abandonné avec la page.
+
+     `onSent` n'est appelé qu'à l'envoi réel, jamais à la mise en file :
+     l'appelant peut ainsi ne marquer l'événement comme transmis que
+     lorsqu'il l'est vraiment, et le retenter à la visite suivante sinon. */
+  window.aquelioPixel = (name, params, onSent) => {
+    if (pixelLoaded) {
+      window.fbq('track', name, params);
+      onSent?.();
+    } else {
+      pending.push([name, params, onSent]);
+    }
   };
 
   // Le stockage local peut être indisponible (navigation privée stricte,
