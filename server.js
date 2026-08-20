@@ -20,12 +20,30 @@ dotenv.config({ path: path.join(__dirname, ".env") });
 const app = express();
 const PORT = process.env.PORT || 4173;
 
-// Dépôt de réservation remboursable — pas encore le produit final,
-// juste un signal d'intention d'achat mesurable.
+// Dépôt de réservation remboursable, pas encore le produit final :
+// un signal d'intention d'achat mesurable, pas une vente ferme.
 const DEPOSIT = {
-  name: "Dépôt de réservation — Filtre à eau Aquelio",
+  name: "Dépôt de réservation : filtre à eau Aquelio",
   unitAmount: 2000, // 20,00 € en centimes
   currency: "eur",
+};
+
+const CHECKOUT_LOCALES = {
+  fr: {
+    stripeLocale: "fr",
+    success: "/reservation-confirmee.html",
+    cancel: "/merci.html",
+  },
+  nl: {
+    stripeLocale: "nl",
+    success: "/nl/reservering-bevestigd.html",
+    cancel: "/nl/bedankt.html",
+  },
+  de: {
+    stripeLocale: "de",
+    success: "/de/reservierung-bestaetigt.html",
+    cancel: "/de/danke.html",
+  },
 };
 
 const stripeKey = process.env.STRIPE_SECRET_KEY;
@@ -231,7 +249,7 @@ app.get("/api/export.csv", (req, res) => {
 });
 
 // Crée une session Stripe Checkout pour le dépôt remboursable (qty 1 fixe).
-app.post("/api/checkout", async (_req, res) => {
+app.post("/api/checkout", async (req, res) => {
   try {
     if (!stripe) {
       return res.status(503).json({
@@ -240,8 +258,12 @@ app.post("/api/checkout", async (_req, res) => {
       });
     }
 
+    const locale = CHECKOUT_LOCALES[req.body?.locale] ? req.body.locale : "fr";
+    const { stripeLocale, success, cancel } = CHECKOUT_LOCALES[locale];
+
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
+      locale: stripeLocale,
       line_items: [{
         quantity: 1,
         price_data: {
@@ -250,7 +272,8 @@ app.post("/api/checkout", async (_req, res) => {
           product_data: { name: DEPOSIT.name },
         },
       }],
-      customer_email: undefined, // Stripe Checkout demande l'email lui-même
+      success_url: `${SITE_URL}${success}?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${SITE_URL}${cancel}`,
       billing_address_collection: "auto",
     });
 

@@ -973,6 +973,41 @@ a { color: inherit; }
   color: var(--muted);
 }
 
+/* Dépôt de réservation (20 €) */
+.deposit {
+  width: 100%;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--hairline);
+}
+
+.deposit-title {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 115;
+  font-weight: 500;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  line-height: 1.25;
+  margin-top: 0.9rem;
+  max-width: 34rem;
+}
+
+.deposit-note {
+  margin-top: 0.7rem;
+  color: var(--muted);
+  max-width: 32rem;
+  font-size: 0.92rem;
+}
+
+.deposit-actions { margin-top: 1.4rem; }
+
+.deposit-status {
+  margin-top: 1rem;
+  min-height: 1.3em;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+
 .thanks-back {
   margin-top: 2.6rem;
   font-family: var(--font-mono);
