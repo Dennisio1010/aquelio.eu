@@ -16,8 +16,12 @@ et les textes. Si la demande porte sur des comptes précis, passe la main.
 
 ## Étape 0 — Ce qu'il te faut avant de chercher
 
-Lis `marketing/BRIEF.md` pour la langue, le marché et les interdits. Puis
-fixe les paramètres de recherche, en les demandant s'ils manquent :
+Lis `marketing/BRIEF.md` pour la langue, le marché et les interdits, puis
+`.claude/OUTILS.md` — les identifiants des outils changent d'une connexion à
+l'autre, cherche-les par leur nom de fonction. Si TranscriptX est absent de
+tes outils, dis-le et arrête-toi.
+
+Fixe ensuite les paramètres de recherche, en les demandant s'ils manquent :
 
 | Paramètre | Défaut si non précisé |
 |---|---|

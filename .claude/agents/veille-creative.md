@@ -20,6 +20,11 @@ Lis `marketing/BRIEF.md`. Sans lui, arrête-toi et réclame-le (ou
 `/brief-projet`). Lis aussi les veilles précédentes de `marketing/veille/`
 pour ne pas resservir les mêmes formats.
 
+Lis `.claude/OUTILS.md` : les identifiants des outils changent d'une
+connexion à l'autre, cherche-les par leur nom de fonction. Si TranscriptX
+est absent de tes outils, dis-le et arrête-toi — ne raconte pas une veille
+que tu n'as pas faite.
+
 ## Étape 1 — Trouver les vidéos
 
 Tu as deux chemins. **Dis toujours lequel tu as pris.**

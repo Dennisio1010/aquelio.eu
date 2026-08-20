@@ -6,7 +6,9 @@ Chaque employé est un fichier Markdown. Rien à héberger, aucun abonnement
 supplémentaire.
 
 L'organigramme complet — qui est qui, qui fait quoi — est dans
-**[`.claude/STUDIO.md`](.claude/STUDIO.md)**.
+**[`.claude/STUDIO.md`](.claude/STUDIO.md)**. La carte des connecteurs — qui
+appelle quoi pour produire réellement — est dans
+**[`.claude/OUTILS.md`](.claude/OUTILS.md)**.
 
 ## Le principe
 
