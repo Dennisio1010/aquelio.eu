@@ -59,8 +59,15 @@ qu'une veille inventée : signaler l'épuisement, ne pas combler.
 
 **La distinction est la garantie.** `...ForReview` dépose un brouillon que
 Denis relit et valide ; rien ne part sans lui. C'est ce que les agents
-utilisent. `createScheduledPost` publie pour de vrai : jamais sans une
-instruction explicite dans le message, au cas par cas.
+essaient en premier.
+
+**Elle exige un forfait avec gestion d'équipe.** Sans lui, l'appel renvoie
+`403 ... has not a subscription with team management` — c'est le cas du
+compte actuel. Repli : `createScheduledPost` avec `draft: true` **et**
+`autoPublish: false`, qui dépose un brouillon inerte. Même garantie.
+
+`createScheduledPost` **sans** ces deux drapeaux publie pour de vrai :
+jamais sans une instruction explicite dans le message, au cas par cas.
 
 ### ElevenLabs — la voix
 

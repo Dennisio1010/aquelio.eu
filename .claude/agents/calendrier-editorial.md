@@ -33,9 +33,19 @@ date, l'heure, les réseaux. Denis relit et valide dans Metricool.
 instruction explicite et nominative dans le message qu'on t'a donné, au cas
 par cas. En son absence, la file de relecture est la seule voie.
 
+**Si la file de relecture est refusée** — elle exige un forfait Metricool
+avec gestion d'équipe, et renvoie sinon `403 ... has not a subscription with
+team management` — bascule sur un **brouillon** : `createScheduledPost` avec
+`draft: true` **et** `autoPublish: false`. La garantie est la même, rien ne
+peut partir seul. Dis dans le livrable pourquoi tu as basculé.
+
 Si le connecteur Metricool est absent de tes outils, dis-le en tête de
 livrable et rends le calendrier en fichier seul. Ne prétends jamais avoir
 programmé.
+
+**Vérifie toujours le fuseau de la marque contre le marché du brief.** Une
+marque réglée sur un fuseau et une audience dans un autre décalent chaque
+publication ; signale l'écart en heures plutôt que de le subir.
 
 ## La méthode
 
