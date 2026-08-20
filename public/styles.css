@@ -97,6 +97,33 @@ a { color: inherit; }
 
 .nav-links a:hover { color: var(--ink); }
 
+/* Bouton menu, mobile uniquement (voir la media query « Mobile » plus bas) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 2.2rem;
+  height: 2.2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.nav.is-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav.is-open .nav-toggle span:nth-child(2) { opacity: 0; }
+.nav.is-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
 .nav-cart {
   font-family: var(--font-mono);
   font-size: 0.76rem;
@@ -1053,7 +1080,39 @@ a { color: inherit; }
 
 /* ── Mobile ────────────────────────────────── */
 @media (max-width: 720px) {
-  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+
+  /* Panneau plein écran plutôt qu'un simple display:none : les liens
+     restent atteignables sur mobile (Guide, Questions, Réserver...),
+     ce qui manquait complètement avant. */
+  .nav-links {
+    position: fixed;
+    inset: 0 0 auto 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 5.5rem 1.5rem 1.5rem;
+    background: rgb(15 46 46 / 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: max-height 0.25s ease, opacity 0.2s ease;
+  }
+
+  .nav.is-open .nav-links {
+    max-height: 100vh;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links a {
+    padding: 0.95rem 0;
+    border-bottom: 1px solid var(--hairline);
+    font-size: 1.02rem;
+  }
 
   /* Vidéo d'ambiance et formulaire présents sur mobile comme sur desktop :
      le fond dégradé ne sert plus que de repli le temps du chargement. */

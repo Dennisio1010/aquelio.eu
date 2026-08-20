@@ -140,7 +140,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <polygon points="426.25,532 573.75,532 500,650" fill="#f5f3ec"/>
     <path d="M500,665 L548,761 A48,48 0 1 1 452,761 Z" fill="#ff6b5b"/>
   </svg>Aquelio</a>
-  <nav class="nav-links" aria-label="Navigation principale">
+  <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
     <a href="#probleme">Le problème</a>
     <a href="#solution">La solution</a>
     <a href="#faq">Questions</a>
@@ -154,8 +154,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/de/">DE</a>
     </div>
     <a class="nav-cart" href="#dossier" data-cta="nav_dossier">Mon dossier</a>
-  </div>
-</header>
+    <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">
+      <span><
 
 <!-- ══ Premier écran : promesse + formulaire, visible sans défilement ══ -->
 <section class="lead-hero" aria-label="Recevoir le dossier PFAS de votre région">
@@ -471,5 +471,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="/script.js"></script>
 <script src="/dossier.js"></script>
 <script src="/deposit.js"></script>
+<script src="/nav.js"></script>
 </body>
 </html>
