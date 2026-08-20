@@ -56,10 +56,23 @@ contenu **éducatif sourcé** et le signale.
 
 ## Le momentum — vérifiable, et c'est le cœur du message
 
-La directive UE **2020/2184** impose depuis le **12 janvier 2026** une limite
-légale de **100 ng/L (PFAS-20)** dans l'eau potable, avec un seuil PFAS-4
-plus strict attendu en **2028**. C'est un fait réglementaire, pas un
-argument fabriqué — d'où le message « Ce n'est plus une option. »
+La directive UE **2020/2184** impose une conformité au **12 janvier 2026**.
+Elle fixe **deux** paramètres, et les États membres choisissent lequel
+appliquer :
+
+- **Somme de 20 PFAS : 0,1 µg/L** (soit 100 ng/L) ;
+- **PFAS Total : 0,5 µg/L**.
+
+**Le seuil PFAS-4 à 20 ng/L en 2028 n'est PAS dans la directive
+européenne** — c'est une disposition de la **TrinkwV allemande**. Il ne peut
+donc être cité que sur le marché DE. L'écrire dans un contenu FR ou NL est
+une erreur d'attribution, et une erreur d'attribution détruit exactement ce
+qui fait la valeur d'Aquelio : la fiabilité de ses sources.
+
+**Encore à vérifier** : la date d'application effective en Wallonie et en
+Flandre. Une directive fixe une échéance européenne ; la transposition
+régionale peut différer. Tant que ce n'est pas confirmé, écrire « depuis le
+12 janvier 2026 » sans préciser le niveau est imprudent.
 
 C'est **le** socle de tout le contenu tant que le produit n'est pas
 certifié : on parle du problème et de la réglementation, pas de la solution.
